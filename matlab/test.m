@@ -27,20 +27,14 @@ p(1,2) = 1;
 
 q_position = 2;
 
-% q
-% p(1,2)X
-% 
-%
-%
-% p(1,1)
-%
-
+% Anonymous function to move code out from the for loop
 calc_f_spring = @(p, q)( K*(L0 - abs(p-q))*((p-q)/abs(p-q)) );
 
 i = 2;
 for t = h:h:t_end
 
-    % DOING p(1,2) (ur mom)
+    % Calculate the forces => gives us acceleration of each particle
+    % DOING p(1,2) 
     Fspring_q = calc_f_spring(p(i-1,2), q_position);
     Fspring_1 = calc_f_spring(p(i-1,2), p(i-1,1));
     Fdamp = -cd*v(i-1,2);
@@ -49,7 +43,7 @@ for t = h:h:t_end
     v(i,2) = v(i-1,2) + a*h;
     p(i,2) = p(i-1,2) + v(i,2)*h;
     
-    % DOING p(1,1) (ur mom)
+    % DOING p(1,1) 
     Fspring = calc_f_spring(p(i-1, 1), p(i-1, 2));
     Fdamp = -cd*v(i-1,1);
     a = (1/m)*(Fmg+Fspring+Fdamp);

@@ -1,4 +1,4 @@
-function [velocity_return, position_return] = numericalMethod(velocity,position,step_size,acceleration,method)
+function [velocity_return, position_return] = numericalMethod(velocity, position, force_w_damp, mass, step_size, acceleration, method)
 
 switch method
    case 'euler' %Eulers method
@@ -7,19 +7,13 @@ switch method
     
     case 'runge-kutta' %Runge-Kutta method
     
-        velocity_return = velocity + acceleration*step_size;
-    
-        %Anonymous fuction
-        F_xy=@(x,y) x+y*step_size;
-   
-        k1 = F_xy(velocity_return,position);
-        k2 = F_xy(velocity_return+0.5*step_size,position+0.5*step_size*k1);
-        k3 = F_xy(velocity_return+0.5*step_size,(position+0.5*step_size*k2));
-        k4 = F_xy(velocity_return+step_size, position+k3*step_size);
-    
-        position_return = position+ (1/6)*(k1+2*k2+2*k3+k4)*step_size;
-   otherwise
-    disp("Error, Method not found")
+        k1 = step_size * ((force_w_damp + calculate_damp_force(velocity))/mass);
+        k2 = step_size * ((force_w_damp + calculate_damp_force(velocity + (k1/2) ))/mass);
+        k3 = step_size * ((force_w_damp + calculate_damp_force(velocity + (k2/2) ))/mass);
+        k4 = step_size * ((force_w_damp + calculate_damp_force(velocity + (k3) ))/mass);
+        
+        velocity_return = velocity + (k1 + 2*k2 + 2*k3 + k4)/6; % poggers 
+        position_return = position + velocity_return * step_size;
 end
 
 end

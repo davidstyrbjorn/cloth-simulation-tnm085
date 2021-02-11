@@ -1,8 +1,10 @@
 #include<iostream>
 
+#define GLEW_STATIC
+#include<gl/glew.h>
+
 int main() {
 
-	printf("hello world\n");
 
 	return 0;
 }

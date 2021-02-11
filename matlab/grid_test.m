@@ -1,12 +1,12 @@
 clear all;
 
 % Declare constant
-K = 3;
-L0 = 0.1;
-m = 0.1;
+K = 2;
+L0 = 0.2;
+total_mass = 70;
 
 step_size = 0.1;
-t_end = 25;
+t_end = 20;
 size_t = t_end/step_size; 
 
 number_of_points = 16*16;
@@ -15,15 +15,20 @@ number_of_points_side = sqrt(number_of_points);
 v = zeros(size_t, number_of_points, 2);
 p = zeros(size_t, number_of_points, 2);
 
+m = 0.1;
+
 p = zeros(1,1,2);
 q = zeros(1,1,2);
+
+circle_center = [1.75, -5];
+circle_radius = 0.5;
 
 z = 1;
 h = 1;    
 for j = 1:number_of_points
     
-    p(1,j,1) = z*L0*0.95;
-    p(1,j,2) = h*L0*0.95;
+    p(1,j,1) = z*L0;
+    p(1,j,2) = h*L0;
     
     % Grid border checking, z = x-axis, h = y-axis
     z = z + 1;

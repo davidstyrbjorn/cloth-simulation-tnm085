@@ -1,0 +1,7 @@
+function [F] = calculate_damp_force(velocity)
+
+cd = 0.5;
+F = -cd * velocity;
+
+end
+

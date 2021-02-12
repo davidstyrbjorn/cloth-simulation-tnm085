@@ -12,11 +12,11 @@ void Window::Clear(glm::vec4 Color)
 {
 }
 
+void Window::Display()
+{
+}
+
 bool Window::IsOpen()
 {
 	return false;
-}
-
-void Window::Display()
-{
 }

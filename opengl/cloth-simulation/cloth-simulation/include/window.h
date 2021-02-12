@@ -18,5 +18,5 @@ public:
 
 private:
 	glm::vec2 windowSize;
-	GLFWwindow* glfwWindow;
+	GLFWwindow* glfwWindow; // test
 };

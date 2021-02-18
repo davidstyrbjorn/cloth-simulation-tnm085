@@ -3,12 +3,19 @@
 #include "../include/input.h"
 
 
-#define GLEW_STATIC
-#include"GL/glew.h"
+
 
 int main() {
 	
-	Window w = Window();
-	
+	Window window = Window(640, 480, "Cloth Simulation");
+
+	while (window.IsOpen()) 
+	{
+		window.Clear(glm::vec4(0.5,0.5,1,1));
+
+		window.Display();
+	}
+
+
 	return 0;
 }

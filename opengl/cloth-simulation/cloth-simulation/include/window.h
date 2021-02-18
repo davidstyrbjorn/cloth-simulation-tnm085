@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 // GLFW
 class GLFWwindow;
 
@@ -44,12 +46,15 @@ SE: https://www.glfw.org/docs/3.3.1/input_guide.html#events
 
 class Window {	
 public:
-	Window();
-	Window(int x, int y);
-
+	//Creates Window for rendering
+	Window(int x = 640, int y = 480, std::string title = "Cloth Simulation");
+	~Window();
 	void Clear(glm::vec4 Color);
 	bool IsOpen();
 	void Display();
+
+	static void error_callback(int error, const char* description);
+	static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 private:
 	glm::vec2 windowSize;

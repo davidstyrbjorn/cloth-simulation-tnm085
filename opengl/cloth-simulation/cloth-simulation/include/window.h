@@ -1,7 +1,7 @@
 #pragma once
 
 // GLFW
-#include"GLFW/glfw3.h"
+class GLFWwindow;
 
 // GLM
 #include"glm/vec2.hpp"

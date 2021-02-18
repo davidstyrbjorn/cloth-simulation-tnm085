@@ -4,9 +4,6 @@ switch method
    case 'euler' 
       velocity_return = velocity + acceleration*step_size;
       position_return = position + velocity_return*step_size;
-    case 'beuler'
-        % do backwards euler
-        % implicit 
     case 'runge-kutta' 
         k1 = step_size * ((force_w_damp + calculate_damp_force(velocity))/mass);
         k2 = step_size * ((force_w_damp + calculate_damp_force(velocity + (k1/2) ))/mass);

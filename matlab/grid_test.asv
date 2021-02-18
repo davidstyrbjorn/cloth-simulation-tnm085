@@ -3,13 +3,11 @@ clear all;
 % Declare constant
 
 %Spring Stiffness
-K = 6;
-
+K = 2;
 %Restlength for spring
-L0 = 10;
+L0 = 2;
 
-%Mass per particle
-m = 0.1;
+total_mass = 20;
 
 step_size = 0.1;
 t_end = 20;
@@ -20,6 +18,8 @@ number_of_points_side = sqrt(number_of_points);
 
 v = zeros(size_t, number_of_points, 2);
 p = zeros(size_t, number_of_points, 2);
+
+m = 0.1;
 
 p = zeros(1,1,2);
 q = zeros(1,1,2);

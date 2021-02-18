@@ -1,9 +1,11 @@
 #include"../include/window.h"
+
 #include<iostream>
+#include<GLFW/glfw3.h>
 
+#include"../include/input.h"
 
-
-Window::Window(int x, int y, std::string title) : windowSize(x,y)
+Window::Window(int x, int y, std::string title) : windowSize(x, y)
 {
 	
 	glfwSetErrorCallback(error_callback);
@@ -14,19 +16,22 @@ Window::Window(int x, int y, std::string title) : windowSize(x,y)
 	
 	//Creates window
 	glfwWindow = glfwCreateWindow(windowSize.x, windowSize.y, title.c_str() , NULL, NULL);
+	glfwMakeContextCurrent(glfwWindow);
 	
-	//Set Key Callback
-	//"Kommer vara jättemånga sen" - davst420
-	glfwSetKeyCallback(glfwWindow, key_callback);
+	// Set the window user pointer, mainly so the Input class can use it
+	glfwSetWindowUserPointer(glfwWindow, this);
 
+	// Input callbacks
+	glfwSetKeyCallback(glfwWindow, key_callback);
+	glfwSetMouseButtonCallback(glfwWindow, mouse_button_callback);
+	glfwSetScrollCallback(glfwWindow, scroll_callback);
+	glfwSetCharCallback(glfwWindow, character_callback);
+	glfwSetWindowSizeCallback(glfwWindow, window_size_callback);
 
 	if (!glfwWindow)
 	{
 		std::cout << "Hörre du du, nu ville fönstret cke fungera :'(" << std::endl;
 	}
-
-	glfwMakeContextCurrent(glfwWindow);
-
 }
 
 Window::~Window()
@@ -44,9 +49,16 @@ void Window::Clear(glm::vec4 Color)
 
 void Window::Display()
 {
-	glfwSwapBuffers(glfwWindow);
+	eventList.clear();
 	glfwPollEvents();
+	glfwSwapBuffers(glfwWindow);
 }
+
+std::vector<Event>& Window::GetPolledEvents()
+{
+	return eventList;
+}
+
 
 bool Window::IsOpen()
 {
@@ -58,8 +70,52 @@ void Window::error_callback(int error, const char* description)
 	fprintf(stderr, "Error: €s\n", description);
 }
 
+
 void Window::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, GLFW_TRUE);
+	// Check for the viable event types we support
+	if (action == GLFW_PRESS || action == GLFW_RELEASE) {
+		Event e;
+		e.key = key;
+		e.type = action == GLFW_PRESS ? EventType::key_down : EventType::key_released;
+
+		// Add the event
+		Window* temp = static_cast<Window*>(glfwGetWindowUserPointer(window));
+		temp->GetPolledEvents().push_back(e);
+	}
+}
+
+void Window::mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+	// Check for the viable event types we support
+	if (action == GLFW_PRESS || action == GLFW_RELEASE) {
+		Event e;
+		e.button = button;
+		e.type = action == GLFW_PRESS ? EventType::mouse_down : EventType::mouse_released;
+
+		// Add the event
+		Window* temp = static_cast<Window*>(glfwGetWindowUserPointer(window));
+		temp->GetPolledEvents().push_back(e);
+	}
+}
+
+void Window::scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{
+	// Do nothing
+}
+
+void Window::character_callback(GLFWwindow* window, unsigned int codepoint)
+{
+	// Do nothing
+}
+
+void Window::window_size_callback(GLFWwindow* window, int width, int height)
+{
+	Event e;
+	e.type = EventType::window_resized;
+	e.size = { width, height };
+
+	// Add the event
+	Window* temp = static_cast<Window*>(glfwGetWindowUserPointer(window));
+	temp->GetPolledEvents().push_back(e);
 }

@@ -34,7 +34,6 @@ public:
 
 private:
 	uint GetUniformLocation(std::string name);
-
 private:
 	uint program_id; // opengl handle
 };

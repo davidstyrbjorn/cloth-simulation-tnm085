@@ -12,6 +12,9 @@ class GLFWwindow;
 
 #include"input.h"
 
+
+
+
 class Window {	
 public:
 	//Creates Window for rendering

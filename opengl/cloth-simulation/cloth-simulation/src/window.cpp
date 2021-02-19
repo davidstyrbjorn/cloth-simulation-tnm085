@@ -68,6 +68,13 @@ std::vector<Event>& Window::GetPolledEvents()
 	return eventList;
 }
 
+glm::vec2 Window::GetRelativeMousePosition()
+{
+	double x, y;
+	glfwGetCursorPos(glfwWindow, &x, &y);
+	return { x, y };
+}
+
 
 bool Window::IsOpen()
 {

@@ -25,6 +25,7 @@ public:
 	bool IsOpen();
 	void Display();
 	std::vector<Event>& GetPolledEvents();
+	glm::vec2 GetRelativeMousePosition();
 
 	// Static GLFW error callback
 	static void error_callback(int error, const char* description);

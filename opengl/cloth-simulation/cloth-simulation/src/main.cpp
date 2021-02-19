@@ -7,13 +7,11 @@
 #include"../include/shader.h"
 
 #define GLEW_STATIC
-#include<GL/glew.h>
+#include <GL/glew.h>
 #include <GLFW\glfw3.h>
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
-
-#include<GLFW/glfw3.h>
 
 int main() {
 	
@@ -23,7 +21,7 @@ int main() {
 	float lastX = SCR_WIDTH / 2.0f;
 	float lastY = SCR_HEIGHT / 2.0f;
 	bool firstMouse = true;
-
+	
 	// timing
 	float deltaTime = 0.0f;	// time between current frame and last frame
 	float lastFrame = 0.0f;
@@ -56,7 +54,6 @@ int main() {
 					camera.ProcessKeyboard(RIGHT, 0.01);
 				}
 			}
-
 		}
 		window.Clear(glm::vec4(0.5,0.5,1,1));
 

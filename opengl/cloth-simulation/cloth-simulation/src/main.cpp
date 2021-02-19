@@ -7,11 +7,13 @@
 #include"../include/shader.h"
 
 #define GLEW_STATIC
-#include <GL/glew.h>
+#include<GL/glew.h>
 #include <GLFW\glfw3.h>
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
+
+#include<GLFW/glfw3.h>
 
 int main() {
 	
@@ -21,7 +23,7 @@ int main() {
 	float lastX = SCR_WIDTH / 2.0f;
 	float lastY = SCR_HEIGHT / 2.0f;
 	bool firstMouse = true;
-	
+
 	// timing
 	float deltaTime = 0.0f;	// time between current frame and last frame
 	float lastFrame = 0.0f;
@@ -30,6 +32,9 @@ int main() {
 	shader.CreateAndCompileShader("quad_vert.txt", "quad_frag.txt");
 
 	Quad quad({ 0,0,0 }, { 0,0 });
+
+	bool isMouseDown = false;
+	glm::vec2 orgMousePos;
 
 	while (window.IsOpen()) 
 	{
@@ -40,21 +45,36 @@ int main() {
 			if (e.type == EventType::window_resized) {
 				glViewport(0, 0, e.size.x, e.size.y);
 			}
-			if (e.type == EventType::key_down) {
-				if (e.key == GLFW_KEY_W) {
-					camera.ProcessKeyboard(FORWARD, 0.01);
-				}
-				if (e.key == GLFW_KEY_A) {
-					camera.ProcessKeyboard(LEFT, 0.01);
-				}
-				if (e.key == GLFW_KEY_S) {
-					camera.ProcessKeyboard(BACKWARD, 0.01);
-				}
-				if (e.key == GLFW_KEY_D) {
-					camera.ProcessKeyboard(RIGHT, 0.01);
-				}
+			if (e.type == EventType::mouse_down) {
+				orgMousePos = window.GetRelativeMousePosition();
+				isMouseDown = true;
 			}
+			if (e.type == EventType::mouse_released) {
+				isMouseDown = false;
+			}
+			
+
 		}
+
+		//Camera controls
+		if (window.IsKeyDown(GLFW_KEY_W)) {
+			camera.ProcessKeyboard(FORWARD, 0.01);
+		}
+		if (window.IsKeyDown(GLFW_KEY_A)) {
+			camera.ProcessKeyboard(LEFT, 0.01);
+		}
+		if (window.IsKeyDown(GLFW_KEY_S)) {
+			camera.ProcessKeyboard(BACKWARD, 0.01);
+		}
+		if (window.IsKeyDown(GLFW_KEY_D)) {
+			camera.ProcessKeyboard(RIGHT, 0.01);
+		}
+
+		if(isMouseDown){
+			auto mousepos = window.GetRelativeMousePosition();
+			camera.ProcessMouseMovement(mousepos.x - orgMousePos.x ,  orgMousePos.y - mousepos.y);
+		}
+
 		window.Clear(glm::vec4(0.5,0.5,1,1));
 
 		// Render a quad

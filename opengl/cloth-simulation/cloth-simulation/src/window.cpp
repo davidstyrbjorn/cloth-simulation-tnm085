@@ -1,6 +1,10 @@
 #include"../include/window.h"
 
 #include<iostream>
+
+#define GLEW_STATIC
+#include<GL/glew.h>
+
 #include<GLFW/glfw3.h>
 
 #include"../include/input.h"
@@ -18,6 +22,11 @@ Window::Window(int x, int y, std::string title) : windowSize(x, y)
 	glfwWindow = glfwCreateWindow(windowSize.x, windowSize.y, title.c_str() , NULL, NULL);
 	glfwMakeContextCurrent(glfwWindow);
 	
+	// Initalize glew now that a opengl context is created
+	if (glewInit() != GLEW_OK) {
+		std::cout << "Failed to Initalize GLEW, OpenGL will not work" << std::endl;
+	}
+
 	// Set the window user pointer, mainly so the Input class can use it
 	glfwSetWindowUserPointer(glfwWindow, this);
 

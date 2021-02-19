@@ -3,6 +3,7 @@
 #include "../include/input.h"
 #include "../include/camera.h"
 
+#include"../include/cloth.h"
 #include"../include/quad.h"
 #include"../include/shader.h"
 
@@ -24,6 +25,12 @@ int main() {
 	float lastY = SCR_HEIGHT / 2.0f;
 	bool firstMouse = true;
 
+	ClothConfig cc;
+	cc.L0 = 1;
+	Cloth cloth(cc, 16);
+
+	//Quad quad({ 0,0,0 }, { 0,0 });
+
 	// timing
 	float deltaTime = 0.0f;	// time between current frame and last frame
 	float lastFrame = 0.0f;
@@ -31,17 +38,12 @@ int main() {
 	Shader shader;
 	shader.CreateAndCompileShader("quad_vert.txt", "quad_frag.txt");
 
-	Quad quad({ 0,0,0 }, { 0,0 });
-
 	bool isMouseDown = false;
 	glm::vec2 orgMousePos;
 
 	while (window.IsOpen()) 
-	{
+	{	
 		for (Event e : window.GetPolledEvents()) {
-			if (e.type == EventType::key_down) {
-				std::cout << "Key Pressed!!!" << std::endl;
-			}
 			if (e.type == EventType::window_resized) {
 				glViewport(0, 0, e.size.x, e.size.y);
 			}
@@ -52,8 +54,6 @@ int main() {
 			if (e.type == EventType::mouse_released) {
 				isMouseDown = false;
 			}
-			
-
 		}
 
 		//Camera controls
@@ -88,8 +88,10 @@ int main() {
 		glm::mat4 view = camera.GetViewMatrix();
 		shader.UniformMat4x4("view", view);
 
-		quad.Bind();
-		quad.Render();
+		//cloth.Draw();
+		//quad.Bind();
+		//quad.Render();
+		cloth.Draw();
 
 		window.Display();
 	}

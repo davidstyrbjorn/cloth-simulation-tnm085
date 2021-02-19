@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="include\camera.h" />
     <ClInclude Include="include\cloth.h" />
+    <ClInclude Include="include\point.h" />
     <ClInclude Include="include\quad.h" />
     <ClInclude Include="include\shader.h" />
     <ClInclude Include="include\window.h" />

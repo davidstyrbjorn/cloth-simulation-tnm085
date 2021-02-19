@@ -1,5 +1,7 @@
 #pragma once
 
+#include"point.h"
+
 #include<vector>
 #include<glm/vec2.hpp>
 
@@ -11,6 +13,7 @@ struct ClothConfig {
 };
 
 class Cloth {
+public:
 	// Constructs the cloth 
 	Cloth(ClothConfig _config, unsigned int _gridSize);
 

@@ -75,6 +75,10 @@ glm::vec2 Window::GetRelativeMousePosition()
 	return { x, y };
 }
 
+bool Window::IsKeyDown(int keycode)
+{
+	return keys[keycode];
+}
 
 bool Window::IsOpen()
 {
@@ -98,6 +102,9 @@ void Window::key_callback(GLFWwindow* window, int key, int scancode, int action,
 		// Add the event
 		Window* temp = static_cast<Window*>(glfwGetWindowUserPointer(window));
 		temp->GetPolledEvents().push_back(e);
+
+		// Set the keys current state in the big keys list
+		temp->keys[key] = action == GLFW_PRESS ? true : false;
 	}
 }
 

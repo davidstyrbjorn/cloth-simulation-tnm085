@@ -8,6 +8,8 @@
 #define GLEW_STATIC
 #include<GL/glew.h>
 
+#include<GLFW/glfw3.h>
+
 int main() {
 	
 	Window window = Window(640, 480, "Cloth Simulation");

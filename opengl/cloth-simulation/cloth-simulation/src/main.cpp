@@ -33,6 +33,9 @@ int main() {
 
 	Quad quad({ 0,0,0 }, { 0,0 });
 
+	bool isMouseDown = false;
+	glm::vec2 orgMousePos;
+
 	while (window.IsOpen()) 
 	{
 		for (Event e : window.GetPolledEvents()) {
@@ -42,22 +45,36 @@ int main() {
 			if (e.type == EventType::window_resized) {
 				glViewport(0, 0, e.size.x, e.size.y);
 			}
-			if (e.type == EventType::key_down) {
-				if (e.key == GLFW_KEY_W) {
-					camera.ProcessKeyboard(FORWARD, 0.01);
-				}
-				if (e.key == GLFW_KEY_A) {
-					camera.ProcessKeyboard(LEFT, 0.01);
-				}
-				if (e.key == GLFW_KEY_S) {
-					camera.ProcessKeyboard(BACKWARD, 0.01);
-				}
-				if (e.key == GLFW_KEY_D) {
-					camera.ProcessKeyboard(RIGHT, 0.01);
-				}
+			if (e.type == EventType::mouse_down) {
+				orgMousePos = window.GetRelativeMousePosition();
+				isMouseDown = true;
 			}
+			if (e.type == EventType::mouse_released) {
+				isMouseDown = false;
+			}
+			
 
 		}
+
+		//Camera controls
+		if (window.IsKeyDown(GLFW_KEY_W)) {
+			camera.ProcessKeyboard(FORWARD, 0.01);
+		}
+		if (window.IsKeyDown(GLFW_KEY_A)) {
+			camera.ProcessKeyboard(LEFT, 0.01);
+		}
+		if (window.IsKeyDown(GLFW_KEY_S)) {
+			camera.ProcessKeyboard(BACKWARD, 0.01);
+		}
+		if (window.IsKeyDown(GLFW_KEY_D)) {
+			camera.ProcessKeyboard(RIGHT, 0.01);
+		}
+
+		if(isMouseDown){
+			auto mousepos = window.GetRelativeMousePosition();
+			camera.ProcessMouseMovement(mousepos.x - orgMousePos.x ,  orgMousePos.y - mousepos.y);
+		}
+
 		window.Clear(glm::vec4(0.5,0.5,1,1));
 
 		// Render a quad

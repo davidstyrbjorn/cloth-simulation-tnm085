@@ -29,7 +29,7 @@ int main() {
 	cc.L0 = 1;
 	Cloth cloth(cc, 16);
 
-	//Quad quad({ 0,0,0 }, { 0,0 });
+	Quad quad({ 0,0,0 }, { 0,0 });
 
 	// timing
 	float deltaTime = 0.0f;	// time between current frame and last frame
@@ -89,8 +89,9 @@ int main() {
 		shader.UniformMat4x4("view", view);
 
 		//cloth.Draw();
-		//quad.Bind();
-		//quad.Render();
+		quad.Bind();
+		quad.Render();
+		
 		cloth.Draw();
 
 		window.Display();

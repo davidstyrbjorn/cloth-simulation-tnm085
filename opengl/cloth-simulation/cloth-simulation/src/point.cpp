@@ -21,13 +21,15 @@ glm::vec3 calculateForce(Point& p, const ClothConfig& clothConfig)
 
 		// temp
 		float temp = glm::distance(p.position, q.position);
-		
+
 		float actualRestLength = calculateRestLength(spring.springType, clothConfig.L0);
 
 		// Calculate and add the spring force to our total force
-		//glm::vec3 springForce = clothConfig.K * (actualRestLength - temp) * ((p.position - q.position) / temp);
-		glm::vec3 springForce = -clothConfig.K * (p.position - q.position);
+		glm::vec3 springForce = clothConfig.K * (actualRestLength - temp) * ((p.position - q.position) / temp);
+
+		//springForce = { 0,0,0 };
 		totalForce += springForce;
+	
 	}
 
 	// Add gravity and damping

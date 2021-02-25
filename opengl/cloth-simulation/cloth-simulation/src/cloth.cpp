@@ -37,7 +37,7 @@ void Cloth::Update(float dt)
 	
 	for(auto& point : gridPoints)
 	{
-		Step(point, clothConfig, dt);
+		Step(point, clothConfig, dt);	
 	}
 
 	// 2. Probably do some kind of UI update later on
@@ -79,7 +79,9 @@ void Cloth::CreateGridPoints()
 
 		Point& curr = gridPoints[i];
 
-		if (y_counter == 0 && (x_counter == 0 || x_counter == squares_per_side)) curr.isStatic = true;
+		if (y_counter == 0 && (x_counter == 0)) curr.isStatic = true;
+		//if (y_counter == 1 && (x_counter == 0 || x_counter == squares_per_side || x_counter == 1 || x_counter == squares_per_side - 1)) curr.isStatic = true;
+		//if (y_counter == 2 && (x_counter == 0 || x_counter == squares_per_side || x_counter == 1 || x_counter == squares_per_side - 1)) curr.isStatic = true;
 
 		//not to the left
 		if (x_counter != 0) {

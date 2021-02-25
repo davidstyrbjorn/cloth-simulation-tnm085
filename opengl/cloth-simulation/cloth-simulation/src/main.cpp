@@ -27,8 +27,8 @@ int main() {
 	bool firstMouse = true;
 
 	ClothConfig cc;
-	cc.L0 = 0.5;
-	cc.g = 9.82;
+	cc.L0 = 1.0f;
+	cc.g = 9.82f;
 	cc.K = 3;
 	cc.cd = 2;
 	cc.mass = 0.1f;

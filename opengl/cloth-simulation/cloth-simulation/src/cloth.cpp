@@ -31,8 +31,10 @@ Cloth::Cloth(ClothConfig _config, unsigned int _gridSize) : clothConfig(_config)
 	// Done!
 }
 
-void Cloth::Update(GLfloat dt)
-{
+
+
+void Cloth::Update(float dt)
+{	
 	// 1. Loop through and call .step on each point
 	
 	for(auto& Point : gridPoints)
@@ -75,64 +77,113 @@ void Cloth::CreateGridPoints()
 	for (int i = 0; i < gridPoints.size(); i++) {
 		x_counter++;
 
+		Point& curr = gridPoints[i];
+
 		//not to the left
 		if (x_counter != 0) {
 			//connect point to the left to gridPoints.p
+			curr.springs.push_back({
+				&gridPoints[i - 1],
+				SpringType::STRUCTURAL
+			});
 
 			if (y_counter != 0) {
-				//connect diagonly to the top left
+				//connect diagonly to the top 
+				curr.springs.push_back({ 
+					&gridPoints[i - gridSize - 1], 
+					SpringType::SHEAR
+				});
 			}
 
 			//flexion two to the left
 			if (x_counter - 2 >= 0) {
 				//connect point 2 away to the left
+				curr.springs.push_back({
+					&gridPoints[i - 2],
+					SpringType::FLEXION
+				});
 			}
 		}
 		//not to the right
 		if (x_counter != squares_per_side) {
 			//connect point to the right to gridPoints.p
+			curr.springs.push_back({
+				&gridPoints[i + 1],
+				SpringType::STRUCTURAL
+			});
 
 			if (y_counter != 0) {
 				//connect diagonly to the top right
+				curr.springs.push_back({
+					&gridPoints[i - gridSize + 1],
+					SpringType::SHEAR
+				});
 			}
 
 			//flexion two to the right
 			if (x_counter + 2 <= squares_per_side) {
 				//connect point 2 away to the right
+				curr.springs.push_back({
+					&gridPoints[i + 2],
+					SpringType::FLEXION
+				});
 			}
 		}
 		//not above
 		if (y_counter != 0) {
 			//connect point to the above to gridPoints.p
+			curr.springs.push_back({
+				&gridPoints[i - gridSize],
+				SpringType::STRUCTURAL
+			});
 
 			//flexion two to the top
 			if (y_counter - 2 >= 0) {
 				//connect point 2 away to the top
+				curr.springs.push_back({
+					&gridPoints[i - gridSize*2],
+					SpringType::FLEXION
+				});
 			}
 
 			
 		}
 		//not under
 		if (y_counter != squares_per_side) {
-			//connect point to the left to gridPoints.p
+			//connect point under 
+			curr.springs.push_back({
+				&gridPoints[i + gridSize],
+				SpringType::STRUCTURAL
+			});
 
 			if (x_counter != 0) {
 				//connect diagonly to the bottom left
+				curr.springs.push_back({
+					&gridPoints[i + gridSize - 1],
+					SpringType::SHEAR
+				});
 			}
 
 			if (x_counter != squares_per_side) {
 				//connect diagonly to the bottom right
+				curr.springs.push_back({
+					&gridPoints[i + gridSize + 1],
+					SpringType::SHEAR
+				});
 			}
 
 			//flexion two to the bottom
-			if (x_counter + 2 <= squares_per_side) {
+			if (y_counter + 2 <= squares_per_side) {
 				//connect point 2 away to the bottom
+				curr.springs.push_back({
+					&gridPoints[i + gridSize*2],
+					SpringType::FLEXION
+				});
 			}
-
 		}
 
 		if (x_counter == squares_per_side) {
-			x_counter = 0;
+			x_counter = -1;
 			y_counter++;
 		}
 	}

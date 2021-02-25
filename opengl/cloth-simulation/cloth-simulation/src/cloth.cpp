@@ -45,10 +45,12 @@ void Cloth::Draw()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
+	UpdateVertexBuffer();
+
 	// 2. Call glDrawElements(...)
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glDrawElements(GL_TRIANGLES, index_count, GL_UNSIGNED_INT, (const void*)0);
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
 
 	// ...probably no reason to unbind since this project will only render a cloth...
 }

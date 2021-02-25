@@ -10,6 +10,7 @@
 #define GLEW_STATIC
 #include<GL/glew.h>
 #include <GLFW\glfw3.h>
+#include <chrono>
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -32,8 +33,9 @@ int main() {
 	Quad quad({ 0,0,0 }, { 0,0 });
 
 	// timing
+	float currentTime = 0.0f;
 	float deltaTime = 0.0f;	// time between current frame and last frame
-	float lastFrame = 0.0f;
+	float oldTime = 0.0f;
 
 	Shader shader;
 	shader.CreateAndCompileShader("quad_vert.txt", "quad_frag.txt");
@@ -80,6 +82,12 @@ int main() {
 		// Render a quad
 		shader.Enable();
 
+		//DeltaTime Update
+
+		currentTime = glfwGetTime();
+		deltaTime = currentTime - oldTime;
+		oldTime = currentTime;
+
 		// pass projection matrix to shader (note that in this case it could change every frame)
 		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 		shader.UniformMat4x4("projection", projection);
@@ -93,7 +101,8 @@ int main() {
 		quad.Render();
 		
 		cloth.Draw();
-
+		cloth.Update(deltaTime);
+		
 		window.Display();
 	}
 

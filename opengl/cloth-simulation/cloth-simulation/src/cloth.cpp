@@ -1,7 +1,7 @@
 #include "..\include\cloth.h"
 
 #include<cmath>
-
+#include<iostream> //For debug purposes
 #define GLEW_STATIC
 #include<GL/glew.h>
 
@@ -31,8 +31,10 @@ Cloth::Cloth(ClothConfig _config, unsigned int _gridSize) : clothConfig(_config)
 	// Done!
 }
 
-void Cloth::Update(float dt)
+void Cloth::Update(GLfloat dt)
 {
+	std::cout << dt << std::endl;
+	
 	// 1. Loop through and call .step on each point
 
 	// 2. Probably do some kind of UI update later on

@@ -64,7 +64,73 @@ void Cloth::CreateGridPoints()
 			gridPoints.push_back(p);
 		}
 	}
-	int x = 0;
+	unsigned int squares_per_side = gridSize - 1;
+	int x_counter = -1; 
+	int y_counter = 0; 
+	for (int i = 0; i < gridPoints.size(); i++) {
+		x_counter++;
+
+		//not to the left
+		if (x_counter != 0) {
+			//connect point to the left to gridPoints.p
+
+			if (y_counter != 0) {
+				//connect diagonly to the top left
+			}
+
+			//flexion two to the left
+			if (x_counter - 2 >= 0) {
+				//connect point 2 away to the left
+			}
+		}
+		//not to the right
+		if (x_counter != squares_per_side) {
+			//connect point to the right to gridPoints.p
+
+			if (y_counter != 0) {
+				//connect diagonly to the top right
+			}
+
+			//flexion two to the right
+			if (x_counter + 2 <= squares_per_side) {
+				//connect point 2 away to the right
+			}
+		}
+		//not above
+		if (y_counter != 0) {
+			//connect point to the above to gridPoints.p
+
+			//flexion two to the top
+			if (y_counter - 2 >= 0) {
+				//connect point 2 away to the top
+			}
+
+			
+		}
+		//not under
+		if (y_counter != squares_per_side) {
+			//connect point to the left to gridPoints.p
+
+			if (x_counter != 0) {
+				//connect diagonly to the bottom left
+			}
+
+			if (x_counter != squares_per_side) {
+				//connect diagonly to the bottom right
+			}
+
+			//flexion two to the bottom
+			if (x_counter + 2 <= squares_per_side) {
+				//connect point 2 away to the bottom
+			}
+
+		}
+
+		if (x_counter == squares_per_side) {
+			x_counter = 0;
+			y_counter++;
+		}
+	}
 }
 
 void Cloth::UpdateIndicesBuffer()

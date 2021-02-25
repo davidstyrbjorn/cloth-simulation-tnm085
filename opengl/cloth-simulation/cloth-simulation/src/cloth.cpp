@@ -33,9 +33,12 @@ Cloth::Cloth(ClothConfig _config, unsigned int _gridSize) : clothConfig(_config)
 
 void Cloth::Update(GLfloat dt)
 {
-	std::cout << dt << std::endl;
-	
 	// 1. Loop through and call .step on each point
+	
+	for(auto& Point : gridPoints)
+	{
+		Step(Point, dt);
+	}
 
 	// 2. Probably do some kind of UI update later on
 }

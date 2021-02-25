@@ -4,38 +4,28 @@
 #include<glm/gtc/matrix_transform.hpp>
 #include<vector>
 
-const float gravity = -9.82f;
-const float cd = 2.0f;
+#include"cloth_config.h"
+
+struct Spring;
+
+enum SpringType {
+	STRUCTURAL,
+	SHEAR,
+	FLEXION,
+};
 
 struct Point {
 	glm::vec3 position;
 	glm::vec3 velocity;
-	float mass; 
-	float stiffness;
-	float restLength;
-	std::vector<Point> connectedPoints;
+	std::vector<Spring> springs;
 };
 
-void Step(Point &p, float dt);
+struct Spring {
+	Point* connectedPoint;
+	SpringType springType;
+};
 
-glm::vec3 calculateForce(Point &p);
+void Step(Point &p, const ClothConfig& clothConfig, float dt);
+glm::vec3 calculateForce(Point &p, const ClothConfig& clothConfig);
 
-//class Point {
-//
-//	
-//
-//public:
-//	//constructor
-//	Point();
-//	Point(glm::vec3 Position, glm::vec3 Velocity, float Mass, float Stiffness, float RestLength);
-//
-//	//function
-//	
-//
-//	
-//
-//	//vars
-//	
-//
-//private:
-//};
+float calculateRestLength(SpringType springType, float L0);

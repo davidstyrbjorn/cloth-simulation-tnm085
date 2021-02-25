@@ -28,7 +28,7 @@ int main() {
 
 	ClothConfig cc;
 	cc.L0 = 1;
-	Cloth cloth(cc, 16);
+	Cloth cloth(cc, 3);
 
 	Quad quad({ 0,0,0 }, { 0,0 });
 

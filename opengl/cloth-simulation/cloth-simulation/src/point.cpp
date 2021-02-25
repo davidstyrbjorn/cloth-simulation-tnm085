@@ -1,42 +1,49 @@
 #include "..\include\point.h"
 #include <iostream>
 #include <algorithm>
+#include<cmath>
 
-/*
-Point::Point()
-{
-	position = glm::vec3(0.0f, 0.0f, 0.0f);
-	velocity = glm::vec3(0.0f, 0.0f, 0.0f);
-}
-
-Point::Point(glm::vec3 Position, glm::vec3 Velocity, float Mass, float Stiffness, float RestLength)
-{
-	position = Position;
-	velocity = Velocity;
-	mass = Mass;
-	stiffness = Stiffness;
-	restLength = RestLength; 
-}
-
-*/
-
-void Step(Point p, float dt)
+void Step(Point& p, const ClothConfig& clothConfig, float dt)
 {
 	p.position = p.position + p.velocity * dt; 
-	p.velocity = p.velocity + (calculateForce(p) / p.mass) * dt; 
+	p.velocity = p.velocity + (calculateForce(p, clothConfig) / clothConfig.mass) * dt; 
 }
 
-glm::vec3 calculateForce(Point p)
+glm::vec3 calculateForce(Point& p, const ClothConfig& clothConfig)
 {
 	glm::vec3 totalForce = glm::vec3(0.0f, 0.0f, 0.0f);
-	std::for_each(p.connectedPoints.begin(), p.connectedPoints.end(), [&](Point q) {
-		glm::vec3 a = glm::abs(p.position - q.position);
-		glm::vec3 springForce = p.stiffness * (p.restLength - a) * ((p.position - q.position) / a);
+	for(auto&& spring : p.springs){
+		Point& q = *spring.connectedPoint; // Get the connected point
+
+		// temp
+		glm::vec3 temp = glm::abs(p.position - q.position);
+		
+		float actualRestLength = calculateRestLength(spring.springType, clothConfig.L0);
+
+		// Calculate and add the spring force to our total force
+		glm::vec3 springForce = clothConfig.K * (actualRestLength - temp) * ((p.position - q.position) / temp);
 		totalForce += springForce;
-	});
+	}
 
-	totalForce += glm::vec3(0.0f, p.mass * gravity, 0.0f);
-	totalForce += -cd * p.velocity;
+	// Add gravity and damping
+	totalForce += glm::vec3(0.0f, clothConfig.mass*clothConfig.g, 0.0f);
+	totalForce += -clothConfig.cd * p.velocity;
 
+	// Done
 	return totalForce;
+}
+
+float calculateRestLength(SpringType springType, float L0)
+{
+	// Calculate the actual rest length based on the spring type and L0 (structural)
+	if (springType == SpringType::STRUCTURAL) return L0;
+
+	if (springType == SpringType::SHEAR) {
+		// Pythagoras theormen
+		return std::sqrt(std::pow(L0, 2) + std::pow(L0, 2));
+	}
+	if (springType == SpringType::FLEXION) {
+		// Twice the length
+		return L0 * 2;
+	}
 }

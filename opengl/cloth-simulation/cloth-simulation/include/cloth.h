@@ -7,11 +7,6 @@
 
 class Point;
 
-struct ClothConfig {
-	float K; // Fjäderns styvhet
-	float L0; // Fjärderns vilolängd
-};
-
 class Cloth {
 public:
 	// Constructs the cloth 

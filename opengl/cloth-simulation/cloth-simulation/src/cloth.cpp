@@ -31,15 +31,13 @@ Cloth::Cloth(ClothConfig _config, unsigned int _gridSize) : clothConfig(_config)
 	// Done!
 }
 
-
-
 void Cloth::Update(float dt)
 {	
 	// 1. Loop through and call .step on each point
 	
-	for(auto& Point : gridPoints)
+	for(auto& point : gridPoints)
 	{
-		Step(Point, dt);
+		Step(point, clothConfig, dt);
 	}
 
 	// 2. Probably do some kind of UI update later on
@@ -57,7 +55,7 @@ void Cloth::Draw()
 	// 2. Call glDrawElements(...)
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glDrawElements(GL_TRIANGLES, index_count, GL_UNSIGNED_INT, (const void*)0);
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 	// ...probably no reason to unbind since this project will only render a cloth...
 }
@@ -80,6 +78,8 @@ void Cloth::CreateGridPoints()
 		x_counter++;
 
 		Point& curr = gridPoints[i];
+
+		if (y_counter == 0 && (x_counter == 0 || x_counter == squares_per_side)) curr.isStatic = true;
 
 		//not to the left
 		if (x_counter != 0) {

@@ -3,8 +3,12 @@
 #include <algorithm>
 #include<cmath>
 
+#include<glm/glm.hpp>
+
 void Step(Point& p, const ClothConfig& clothConfig, float dt)
 {
+	if (p.isStatic) return;
+
 	p.position = p.position + p.velocity * dt; 
 	p.velocity = p.velocity + (calculateForce(p, clothConfig) / clothConfig.mass) * dt; 
 }
@@ -16,17 +20,18 @@ glm::vec3 calculateForce(Point& p, const ClothConfig& clothConfig)
 		Point& q = *spring.connectedPoint; // Get the connected point
 
 		// temp
-		glm::vec3 temp = glm::abs(p.position - q.position);
+		float temp = glm::distance(p.position, q.position);
 		
 		float actualRestLength = calculateRestLength(spring.springType, clothConfig.L0);
 
 		// Calculate and add the spring force to our total force
-		glm::vec3 springForce = clothConfig.K * (actualRestLength - temp) * ((p.position - q.position) / temp);
+		//glm::vec3 springForce = clothConfig.K * (actualRestLength - temp) * ((p.position - q.position) / temp);
+		glm::vec3 springForce = -clothConfig.K * (p.position - q.position);
 		totalForce += springForce;
 	}
 
 	// Add gravity and damping
-	totalForce += glm::vec3(0.0f, clothConfig.mass*clothConfig.g, 0.0f);
+	totalForce += glm::vec3(0.0f, -clothConfig.mass*clothConfig.g, 0.0f);
 	totalForce += -clothConfig.cd * p.velocity;
 
 	// Done

@@ -27,8 +27,12 @@ int main() {
 	bool firstMouse = true;
 
 	ClothConfig cc;
-	cc.L0 = 1;
-	Cloth cloth(cc, 3);
+	cc.L0 = 0.5;
+	cc.g = 9.82;
+	cc.K = 3;
+	cc.cd = 2;
+	cc.mass = 0.1f;
+	Cloth cloth(cc, 16);
 
 	Quad quad({ 0,0,0 }, { 0,0 });
 
@@ -36,6 +40,8 @@ int main() {
 	float currentTime = 0.0f;
 	float deltaTime = 0.0f;	// time between current frame and last frame
 	float oldTime = 0.0f;
+
+	float stepTime = 3;
 
 	Shader shader;
 	shader.CreateAndCompileShader("quad_vert.txt", "quad_frag.txt");
@@ -77,6 +83,8 @@ int main() {
 			camera.ProcessMouseMovement(mousepos.x - orgMousePos.x ,  orgMousePos.y - mousepos.y);
 		}
 
+		cloth.Update(deltaTime*stepTime);
+
 		window.Clear(glm::vec4(0.5,0.5,1,1));
 
 		// Render a quad
@@ -101,7 +109,6 @@ int main() {
 		quad.Render();
 		
 		cloth.Draw();
-		cloth.Update(deltaTime);
 		
 		window.Display();
 	}

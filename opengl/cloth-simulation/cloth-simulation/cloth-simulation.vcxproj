@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\time.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\cloth.cpp" />
     <ClCompile Include="src\input.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="include\point.h" />
     <ClInclude Include="include\quad.h" />
     <ClInclude Include="include\shader.h" />
+    <ClInclude Include="include\time.h" />
     <ClInclude Include="include\window.h" />
     <ClInclude Include="include\input.h" />
   </ItemGroup>

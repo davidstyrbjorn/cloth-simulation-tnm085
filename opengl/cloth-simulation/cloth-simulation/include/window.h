@@ -27,6 +27,7 @@ public:
 	std::vector<Event>& GetPolledEvents();
 	glm::vec2 GetRelativeMousePosition();
 	bool IsKeyDown(int keycode);
+	bool IsMouseDown() const;
 
 	// Static GLFW error callback
 	static void error_callback(int error, const char* description);
@@ -43,4 +44,5 @@ private:
 	GLFWwindow* glfwWindow; // test
 	std::vector<Event> eventList;
 	bool keys[1028];
+	bool mouseDown;
 };

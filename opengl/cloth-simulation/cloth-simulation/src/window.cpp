@@ -9,7 +9,7 @@
 
 #include"../include/input.h"
 
-Window::Window(int x, int y, std::string title) : windowSize(x, y)
+Window::Window(int x, int y, std::string title) : windowSize(x, y), mouseDown(false)
 {
 	
 	glfwSetErrorCallback(error_callback);
@@ -80,6 +80,11 @@ bool Window::IsKeyDown(int keycode)
 	return keys[keycode];
 }
 
+bool Window::IsMouseDown() const
+{
+	return mouseDown;
+}
+
 bool Window::IsOpen()
 {
 	return !glfwWindowShouldClose(glfwWindow);
@@ -87,9 +92,8 @@ bool Window::IsOpen()
 
 void Window::error_callback(int error, const char* description)
 {
-	fprintf(stderr, "Error: €s\n", description);
+	std::cout << description << std::endl;
 }
-
 
 void Window::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
@@ -116,9 +120,13 @@ void Window::mouse_button_callback(GLFWwindow* window, int button, int action, i
 		e.button = button;
 		e.type = action == GLFW_PRESS ? EventType::mouse_down : EventType::mouse_released;
 
+
 		// Add the event
 		Window* temp = static_cast<Window*>(glfwGetWindowUserPointer(window));
 		temp->GetPolledEvents().push_back(e);
+		
+		// Mouse down modify
+		temp->mouseDown = action == GLFW_PRESS ? true : false;
 	}
 }
 
@@ -137,6 +145,8 @@ void Window::window_size_callback(GLFWwindow* window, int width, int height)
 	Event e;
 	e.type = EventType::window_resized;
 	e.size = { width, height };
+
+	glViewport(0, 0, width, height);
 
 	// Add the event
 	Window* temp = static_cast<Window*>(glfwGetWindowUserPointer(window));

@@ -1,7 +1,8 @@
 #include<iostream>
-#include "../include/window.h"
-#include "../include/input.h"
-#include "../include/camera.h"
+#include"../include/window.h"
+#include"../include/input.h"
+#include"../include/camera.h"
+#include"../include/time.h"
 
 #include"../include/cloth.h"
 #include"../include/quad.h"
@@ -9,8 +10,7 @@
 
 #define GLEW_STATIC
 #include<GL/glew.h>
-#include <GLFW\glfw3.h>
-#include <chrono>
+#include<GLFW\glfw3.h>
 
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -21,7 +21,7 @@ int main() {
 	
 	Window window = Window(SCR_WIDTH, SCR_HEIGHT, "Cloth Simulation");
 
-	Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+	Camera camera(&window, glm::vec3(0.0f, 0.0f, 3.0f));
 	float lastX = SCR_WIDTH / 2.0f;
 	float lastY = SCR_HEIGHT / 2.0f;
 	bool firstMouse = true;
@@ -49,78 +49,57 @@ int main() {
 	bool isMouseDown = false;
 	glm::vec2 orgMousePos;
 
-	int fps = 0;
-	double lastRecord = 0.0f;
+	FPSTimer fpsTimer;
 
 	while (window.IsOpen()) 
 	{	
 		for (Event e : window.GetPolledEvents()) {
-			if (e.type == EventType::window_resized) {
-				glViewport(0, 0, e.size.x, e.size.y);
-			}
 			if (e.type == EventType::mouse_down) {
+				// Useed for camera movement
 				orgMousePos = window.GetRelativeMousePosition();
-				isMouseDown = true;
-			}
-			if (e.type == EventType::mouse_released) {
-				isMouseDown = false;
 			}
 		}
-
-		//Camera controls
-		if (window.IsKeyDown(GLFW_KEY_W)) {
-			camera.ProcessKeyboard(FORWARD, 0.01);
-		}
-		if (window.IsKeyDown(GLFW_KEY_A)) {
-			camera.ProcessKeyboard(LEFT, 0.01);
-		}
-		if (window.IsKeyDown(GLFW_KEY_S)) {
-			camera.ProcessKeyboard(BACKWARD, 0.01);
-		}
-		if (window.IsKeyDown(GLFW_KEY_D)) {
-			camera.ProcessKeyboard(RIGHT, 0.01);
-		}
-
-		if(isMouseDown){
+		
+		camera.ProcessKeyboard(deltaTime);
+		if(window.IsMouseDown()){
 			auto mousepos = window.GetRelativeMousePosition();
 			camera.ProcessMouseMovement(mousepos.x - orgMousePos.x ,  orgMousePos.y - mousepos.y);
 		}
 
+		/* UPDATING */
+
 		cloth.Update(deltaTime*stepTime);
 
+		/* RENDERING */
+
+		// Clear the window
 		window.Clear(glm::vec4(0.5,0.5,1,1));
 
-		// Render a quad
+		// Enable the main shader
 		shader.Enable();
-
-		//DeltaTime Update
-
-		currentTime = glfwGetTime();
-		deltaTime = currentTime - oldTime;
-		oldTime = currentTime;
-
 		// pass projection matrix to shader (note that in this case it could change every frame)
 		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 		shader.UniformMat4x4("projection", projection);
-
 		// camera/view transformation
 		glm::mat4 view = camera.GetViewMatrix();
 		shader.UniformMat4x4("view", view);
 
-		//cloth.Draw();
+		// Render a banana, for reference
 		quad.Bind();
 		quad.Render();
 		
+		// Renders everything todo with the cloth
 		cloth.Draw();
 		
+		// Rendering done!
 		window.Display();
 
-		fps++;
-		if (glfwGetTime() - lastRecord > 1) {
-			std::cout << "FPS: " << fps << std::endl;
-			fps = 0;
-			lastRecord = glfwGetTime();
-		}
+		// Frame done, measure FPS and delta
+		currentTime = glfwGetTime();
+		deltaTime = currentTime - oldTime;
+		oldTime = currentTime;
+
+		fpsTimer.FrameDone();
 	}
 
 	return 0;

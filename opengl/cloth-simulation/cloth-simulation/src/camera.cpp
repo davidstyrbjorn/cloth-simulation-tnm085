@@ -1,6 +1,9 @@
 #include "../include/camera.h"
 
-Camera::Camera(glm::vec3 position)
+#include"../include/window.h"
+#include<GLFW/glfw3.h>
+
+Camera::Camera(Window* _window, glm::vec3 position)
 {
     Position = position;
     WorldUp = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -12,6 +15,8 @@ Camera::Camera(glm::vec3 position)
 	MouseSensitivity = SENSITIVITY;
 	Zoom = ZOOM;
 
+	window = _window;
+
     updateCameraVectors();
 }
 
@@ -21,17 +26,23 @@ glm::mat4 Camera::GetViewMatrix()
     return glm::lookAt(Position, Position + Front, Up);
 }
 
-void Camera::ProcessKeyboard(Camera_Movement direction, float deltaTime)
+void Camera::ProcessKeyboard(float deltaTime)
 {
     float velocity = MovementSpeed * deltaTime;
-    if (direction == FORWARD)
+	if(window->IsKeyDown(GLFW_KEY_W))
         Position += Front * velocity;
-    if (direction == BACKWARD)
+	if (window->IsKeyDown(GLFW_KEY_S))
         Position -= Front * velocity;
-    if (direction == LEFT)
+	if (window->IsKeyDown(GLFW_KEY_A))
         Position -= Right * velocity;
-    if (direction == RIGHT)
+	if (window->IsKeyDown(GLFW_KEY_D))
         Position += Right * velocity;
+	if (window->IsKeyDown(GLFW_KEY_SPACE)) {
+		Position += Up * velocity;
+	}
+	if (window->IsKeyDown(GLFW_KEY_LEFT_SHIFT)) {
+		Position -= Up * velocity;
+	}
 }
 
 void Camera::ProcessMouseMovement(float xoffset, float yoffset, unsigned char constrainPitch)

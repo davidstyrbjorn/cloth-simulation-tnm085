@@ -26,7 +26,9 @@ Cloth::Cloth(ClothConfig _config, unsigned int _gridSize) : clothConfig(_config)
 
 	// 5. Setup the created VAO from step 2
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Point), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Point), (GLvoid*)0);					// position
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Point), (GLvoid*)sizeof(glm::vec3)); // normals
 
 	// Done!
 }
@@ -51,6 +53,7 @@ void Cloth::Draw()
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
 	UpdateVertexBuffer();
+	UpdateNormals();
 
 	// 2. Call glDrawElements(...)
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -71,6 +74,8 @@ void Cloth::CreateGridPoints()
 			gridPoints.push_back(p);
 		}
 	}
+
+	// Connect all the points
 	unsigned int squares_per_side = gridSize - 1;
 	int x_counter = -1; 
 	int y_counter = 0; 
@@ -237,4 +242,57 @@ void Cloth::UpdateVertexBuffer()
 {
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, gridPoints.size() * sizeof(Point), &gridPoints.front(), GL_STATIC_DRAW);
+}
+
+void Cloth::UpdateNormals()
+{
+	unsigned int squares_per_side = gridSize - 1;
+	int x_counter = -1;
+	int y_counter = 0;
+
+	for (int i = 0; i < gridPoints.size(); i++) {
+		x_counter++;
+
+		Point& curr = gridPoints[i];
+		
+		// Bottom case
+		if (y_counter == squares_per_side) {
+			if (x_counter == squares_per_side) {
+				Point& left = gridPoints[i - 1];
+				Point& above = gridPoints[i - gridSize];
+				curr.normal = GetNormal(curr, above, left);
+			}
+			else {
+				Point& right = gridPoints[i + 1];
+				Point& above = gridPoints[i - gridSize];
+				curr.normal = GetNormal(curr, right, above);
+			}
+		}
+		else if (x_counter == squares_per_side) {
+			Point& left = gridPoints[i - 1];
+			Point& under = gridPoints[i + gridSize];
+			curr.normal = GetNormal(curr, left, under);
+		}
+		else {
+			Point& right = gridPoints[i + 1];
+			Point& under = gridPoints[i + gridSize];
+			curr.normal = GetNormal(curr, right, under);
+		}
+
+		if (x_counter == squares_per_side) {
+			x_counter = -1;
+			y_counter++;
+		}
+	}
+}
+
+glm::vec3 Cloth::GetNormal(const Point& p1, const Point& p2, const Point& p3) const
+{
+	// p1 is assumed to be in the 90 degree corner
+	// p2 and p3 are hypthenus points
+
+	glm::vec3 A = p2.position - p1.position;
+	glm::vec3 B = p3.position - p1.position;
+
+	return glm::cross(A, B);
 }

@@ -22,6 +22,9 @@ private:
 	void CreateGridPoints();
 	void UpdateIndicesBuffer();
 	void UpdateVertexBuffer();
+	void UpdateNormals();
+
+	glm::vec3 GetNormal(const Point& p1, const Point& p2, const Point& p3) const;
 
 private:
 	unsigned int gridSize;

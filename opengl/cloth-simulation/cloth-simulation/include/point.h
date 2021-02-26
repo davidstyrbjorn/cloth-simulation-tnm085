@@ -15,8 +15,9 @@ enum SpringType {
 };
 
 struct Point {
-	glm::vec3 position = { 0,0,0 };
-	glm::vec3 velocity = { 0,0,0 };
+	glm::vec3 position		= { 0,0,0 };
+	glm::vec3 velocity		= { 0,0,0 };
+	glm::vec3 acceleration	= { 0,0,0 };
 	glm::vec3 force = { 0,0,0 };
 	std::vector<Spring> springs;
 	bool isStatic = false;

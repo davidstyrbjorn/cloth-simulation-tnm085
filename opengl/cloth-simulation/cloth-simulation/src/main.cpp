@@ -28,8 +28,8 @@ int main() {
 
 	ClothConfig cc;
 	cc.L0 = 1.0f;
-	cc.g = 9.82f;
-	cc.K = 3;
+	cc.g = 15;
+	cc.K = 2;
 	cc.cd = 2;
 	cc.mass = 0.1f;
 	Cloth cloth(cc, 16);
@@ -42,6 +42,7 @@ int main() {
 	float oldTime = 0.0f;
 
 	float stepTime = 1.2;
+	//float stepTime = 0.1f;
 
 	Shader shader;
 	shader.CreateAndCompileShader("quad_vert.txt", "quad_frag.txt");

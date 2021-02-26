@@ -36,6 +36,7 @@ Window::Window(int x, int y, std::string title) : windowSize(x, y), mouseDown(fa
 	glfwSetScrollCallback(glfwWindow, scroll_callback);
 	glfwSetCharCallback(glfwWindow, character_callback);
 	glfwSetWindowSizeCallback(glfwWindow, window_size_callback);
+	//glfwSwapInterval(0);
 
 	if (!glfwWindow)
 	{

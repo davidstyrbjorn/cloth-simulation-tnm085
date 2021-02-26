@@ -9,8 +9,22 @@ void Step(Point& p, const ClothConfig& clothConfig, float dt)
 {
 	if (p.isStatic) return;
 
-	p.position = p.position + p.velocity * dt; 
-	p.velocity = p.velocity + (calculateForce(p, clothConfig) / clothConfig.mass) * dt; 
+	/*-----Euler-----*/
+	//p.position = p.position + p.velocity * dt; 
+	//p.velocity = p.velocity + (calculateForce(p, clothConfig) / clothConfig.mass) * dt;
+
+	/*-----Verlet----*/
+	
+	// newAcc is used to save the new acceleration and allow both the new and old to be used during calculations
+	glm::vec3 newAcc = (calculateForce(p, clothConfig) + p.force) / clothConfig.mass;
+
+	//Calculate our new position and velocity
+	p.position = p.position + p.velocity * dt + p.acceleration* (dt * dt * 0.5f);
+	p.velocity = p.velocity + (p.acceleration + newAcc) * (dt * 0.5f);
+	
+	//Set newAcc to our current acceleration
+	p.acceleration = newAcc;
+
 }
 
 glm::vec3 calculateForce(Point& p, const ClothConfig& clothConfig)
@@ -26,6 +40,9 @@ glm::vec3 calculateForce(Point& p, const ClothConfig& clothConfig)
 
 		// Calculate and add the spring force to our total force
 		glm::vec3 springForce = clothConfig.K * (actualRestLength - temp) * ((p.position - q.position) / temp);
+		for (auto& point : p.springs) {
+			point.connectedPoint->force = -springForce;
+		}
 
 		//springForce = { 0,0,0 };
 		totalForce += springForce;

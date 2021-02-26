@@ -30,6 +30,7 @@ private:
 	unsigned int gridSize;
 	ClothConfig clothConfig;
 	std::vector<Point> gridPoints; // All the points making up the grid
+	std::vector<Spring> springs;
 
 	unsigned int vao;
 	unsigned int vbo;

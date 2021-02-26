@@ -56,7 +56,7 @@ int main() {
 	float deltaTime = 0.0f;	// time between current frame and last frame
 	float oldTime = 0.0f;
 
-	float stepTime = 3;
+	float stepTime = 1.2;
 
 	Shader shader;
 	shader.CreateAndCompileShader("quad_vert.txt", "quad_frag.txt");

@@ -79,6 +79,8 @@ void Cloth::CreateGridPoints()
 
 		Point& curr = gridPoints[i];
 
+
+		//if (y_counter == 0 && (x_counter == 0) || y_counter == 0 && x_counter == 15) curr.isStatic = true;
 		if (y_counter == 0 && (x_counter == 0)) curr.isStatic = true;
 		//if (y_counter == 1 && (x_counter == 0 || x_counter == squares_per_side || x_counter == 1 || x_counter == squares_per_side - 1)) curr.isStatic = true;
 		//if (y_counter == 2 && (x_counter == 0 || x_counter == squares_per_side || x_counter == 1 || x_counter == squares_per_side - 1)) curr.isStatic = true;

@@ -49,6 +49,9 @@ int main() {
 	bool isMouseDown = false;
 	glm::vec2 orgMousePos;
 
+	int fps = 0;
+	double lastRecord = 0.0f;
+
 	while (window.IsOpen()) 
 	{	
 		for (Event e : window.GetPolledEvents()) {
@@ -111,6 +114,13 @@ int main() {
 		cloth.Draw();
 		
 		window.Display();
+
+		fps++;
+		if (glfwGetTime() - lastRecord > 1) {
+			std::cout << "FPS: " << fps << std::endl;
+			fps = 0;
+			lastRecord = glfwGetTime();
+		}
 	}
 
 	return 0;

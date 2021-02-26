@@ -9,21 +9,27 @@ void Step(Point& p, const ClothConfig& clothConfig, float dt)
 {
 	if (p.isStatic) return;
 
+	bool f =false;
 	/*-----Euler-----*/
-	//p.position = p.position + p.velocity * dt; 
-	//p.velocity = p.velocity + (calculateForce(p, clothConfig) / clothConfig.mass) * dt;
+	if (f) {
+		p.position = p.position + p.velocity * dt; 
+		p.velocity = p.velocity + ((calculateForce(p, clothConfig) + p.accumulatedForce) / clothConfig.mass) * dt;
+		p.accumulatedForce = { 0,0,0 };
 
+	}
 	/*-----Verlet----*/
-	
-	// newAcc is used to save the new acceleration and allow both the new and old to be used during calculations
-	glm::vec3 newAcc = (calculateForce(p, clothConfig) + p.force) / clothConfig.mass;
+	else {
+		// newAcc is used to save the new acceleration and allow both the new and old to be used during calculations
+		glm::vec3 newAcc = (calculateForce(p, clothConfig) + p.accumulatedForce) / clothConfig.mass;
+		p.accumulatedForce = { 0,0,0 };
 
-	//Calculate our new position and velocity
-	p.position = p.position + p.velocity * dt + p.acceleration* (dt * dt * 0.5f);
-	p.velocity = p.velocity + (p.acceleration + newAcc) * (dt * 0.5f);
-	
-	//Set newAcc to our current acceleration
-	p.acceleration = newAcc;
+		//Calculate our new position and velocity
+		p.position = p.position + p.velocity * dt + p.acceleration * (dt * dt * 0.5f);
+		p.velocity = p.velocity + (p.acceleration + newAcc) * (dt * 0.5f);
+
+		//Set newAcc to our current acceleration
+		p.acceleration = newAcc;
+	}
 
 }
 
@@ -40,18 +46,27 @@ glm::vec3 calculateForce(Point& p, const ClothConfig& clothConfig)
 
 		// Calculate and add the spring force to our total force
 		glm::vec3 springForce = clothConfig.K * (actualRestLength - temp) * ((p.position - q.position) / temp);
-		for (auto& point : p.springs) {
-			point.connectedPoint->force = -springForce;
-		}
+
+		spring.connectedPoint->accumulatedForce += -springForce;
 
 		//springForce = { 0,0,0 };
 		totalForce += springForce;
-	
+
+		/* Constraints */
+		if (temp > actualRestLength*1.1f) {
+			float offset = (temp - actualRestLength*1.1f) / temp;
+			glm::vec3 correction = 0.5f * offset * (p.position - q.position);
+			if (!p.isStatic)
+				p.position -= correction;
+			if (!q.isStatic)
+				q.position += correction;
+		}
 	}
 
 	// Add gravity and damping
-	totalForce += glm::vec3(0.0f, -clothConfig.mass*clothConfig.g, 0.0f);
 	totalForce += -clothConfig.cd * p.velocity;
+
+	totalForce += glm::vec3(0.0f, -clothConfig.mass*clothConfig.g, 0.0f);
 
 	// Done
 	return totalForce;

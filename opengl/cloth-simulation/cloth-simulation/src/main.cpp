@@ -41,9 +41,9 @@ int main() {
 	Cloth cloth(cc, 16);
 	
 	SinusWind* force = new SinusWind;
-	//force->direction = {0.5, 0, 0 };
-	//force->strength = 3;
-	//cloth.AddExternalForce(force);
+	force->direction = {0.5, 0, 0 };
+	force->strength = 3;
+	cloth.AddExternalForce(force);
 
 	Quad quad({ 0,0,0 }, { 0,0 });
 
@@ -86,7 +86,7 @@ int main() {
 		}
 		
 		camera.ProcessKeyboard(deltaTime);
-		if(window.IsMouseDown()){
+		if(window.IsRightMouseDown()){
 			auto mousepos = window.GetRelativeMousePosition();
 			camera.ProcessMouseMovement(mousepos.x - orgMousePos.x ,  orgMousePos.y - mousepos.y);
 		}

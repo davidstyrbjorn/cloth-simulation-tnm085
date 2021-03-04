@@ -1,7 +1,6 @@
 #pragma once
-#include "cloth.h"
 
-
+class Cloth;
 
 class ClothUI {
 public:

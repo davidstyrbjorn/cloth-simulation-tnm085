@@ -141,6 +141,7 @@
     <ClCompile Include="include\imgui\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="src\cloth_ui.cpp" />
     <ClCompile Include="include\time.cpp" />
+    <ClCompile Include="src\external_force.cpp" />
     <ClCompile Include="src\skybox.cpp" />
     <ClCompile Include="src\time.cpp" />
     <ClCompile Include="src\camera.cpp" />

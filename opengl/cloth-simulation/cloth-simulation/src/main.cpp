@@ -37,7 +37,7 @@ int main() {
 	cc.cd = 2;
 	cc.mass = 0.1f;
 	Cloth cloth(cc, 16);
-
+	
 	SinusWind* sw = new SinusWind;
 	sw->direction = { 1,0,0 };
 	sw->strength = 3;

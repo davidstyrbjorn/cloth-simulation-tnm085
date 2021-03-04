@@ -22,6 +22,8 @@ public:
 
 	void AddExternalForce(ExternalForce* external_force);
 
+	ClothConfig& GetClothConfig();
+
 private:
 	void CreateGridPoints();
 	void UpdateIndicesBuffer();

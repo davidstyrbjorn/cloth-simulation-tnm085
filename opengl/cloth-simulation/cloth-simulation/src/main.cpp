@@ -38,13 +38,18 @@ int main() {
 	cc.K = 2;
 	cc.cd = 2;
 	cc.mass = 0.1f;
+
 	Cloth cloth(cc, 16);
 	
+	ClothUI UI(cloth);
+
 	SinusWind* sw = new SinusWind;
 	sw->direction = { 1,0,0 };
 	sw->strength = 3;
 	cloth.AddExternalForce(sw);
 	
+	
+
 	Quad quad({ 0,0,0 }, { 0,0 });
 
 	//Skybox Faces
@@ -126,9 +131,7 @@ int main() {
 		cloth.Draw();
 		
 		//Renders UI!
-		ImGui::Begin("test");
-		ImGui::Text("Or alien");
-		ImGui::End();
+		UI.Render();
 
 		// Rendering done!
 		window.Display();

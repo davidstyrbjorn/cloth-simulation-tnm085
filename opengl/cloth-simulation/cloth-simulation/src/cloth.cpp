@@ -74,6 +74,11 @@ void Cloth::AddExternalForce(ExternalForce* external_force)
 	clothConfig.externalForces.push_back(external_force);
 }
 
+ClothConfig& Cloth::GetClothConfig()
+{
+	return clothConfig;
+}
+
 void Cloth::CreateGridPoints()
 {
 	gridPoints.clear(); // Empty out all the current grid points

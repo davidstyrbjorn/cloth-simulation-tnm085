@@ -39,7 +39,7 @@ public:
 	static void character_callback(GLFWwindow* window, unsigned int codepoint);
 	static void window_size_callback(GLFWwindow* window, int width, int height);
 
-private:
+public:
 	glm::vec2 windowSize;
 	GLFWwindow* glfwWindow; // test
 	std::vector<Event> eventList;

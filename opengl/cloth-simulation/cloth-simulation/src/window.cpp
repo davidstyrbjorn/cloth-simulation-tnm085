@@ -1,16 +1,18 @@
+#include"../include/imgui/imgui.h"       // Det här måste vara högst upp annars skiter den ner sig
+#include"../include/imgui/imgui_glfw.h"
+
 #include"../include/window.h"
 #include"../include/input.h"
-
-#include<iostream>
 
 #define GLEW_STATIC
 #include<GL/glew.h>
 
 #include<GLFW/glfw3.h>
 
+#include<iostream>
+
 Window::Window(int x, int y, std::string title) : windowSize(x, y), mouseDown(false)
 {
-	
 	glfwSetErrorCallback(error_callback);
 	if (!glfwInit())
 	{
@@ -35,9 +37,10 @@ Window::Window(int x, int y, std::string title) : windowSize(x, y), mouseDown(fa
 	glfwSetScrollCallback(glfwWindow, scroll_callback);
 	glfwSetCharCallback(glfwWindow, character_callback);
 	glfwSetWindowSizeCallback(glfwWindow, window_size_callback);
-	//glfwSwapInterval(0);
 
-	// ImGUi callbacks installation
+	// Initalize ImGui
+	ImGui::CreateContext();
+	ImGui_ImplGlfwGL3_Init(glfwWindow, false);
 
 	if (!glfwWindow)
 	{
@@ -49,6 +52,8 @@ Window::~Window()
 {
 	glfwDestroyWindow(glfwWindow);
 	glfwTerminate();
+
+	ImGui_ImplGlfwGL3_Shutdown();
 }
 
 
@@ -56,13 +61,20 @@ void Window::Clear(glm::vec4 Color)
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClearColor(Color.r, Color.g, Color.b, Color.a); // set the color
+
+	// ImGui new frame, calls ImGui::NewFrame()
+	ImGui_ImplGlfwGL3_NewFrame();
 }
 
 void Window::Display()
 {
+	// Make ImGui Render its data
+	ImGui::Render();
+
 	eventList.clear();
 	glfwPollEvents();
 	glfwSwapBuffers(glfwWindow);
+
 }
 
 std::vector<Event>& Window::GetPolledEvents()
@@ -100,6 +112,7 @@ void Window::error_callback(int error, const char* description)
 void Window::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	//ImGui Callback
+	ImGui_ImplGlfwGL3_KeyCallback(window, key, scancode, action, mods);
 
 	// Check for the viable event types we support
 	if (action == GLFW_PRESS || action == GLFW_RELEASE) {
@@ -118,9 +131,8 @@ void Window::key_callback(GLFWwindow* window, int key, int scancode, int action,
 
 void Window::mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
-
 	//ImGui Callback
-	(window, button, action, mods);
+	ImGui_ImplGlfwGL3_MouseButtonCallback(window, button, action, mods);
 
 	// Check for the viable event types we support
 	if (action == GLFW_PRESS || action == GLFW_RELEASE) {
@@ -140,10 +152,12 @@ void Window::mouse_button_callback(GLFWwindow* window, int button, int action, i
 
 void Window::scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
+	ImGui_ImplGlfwGL3_ScrollCallback(window, xoffset, yoffset);
 }
 
 void Window::character_callback(GLFWwindow* window, unsigned int codepoint)
 {
+	ImGui_ImplGlfwGL3_CharCallback(window, codepoint);
 }
 
 void Window::window_size_callback(GLFWwindow* window, int width, int height)

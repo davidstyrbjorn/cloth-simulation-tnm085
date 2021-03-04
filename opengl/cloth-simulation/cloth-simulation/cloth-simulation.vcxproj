@@ -138,7 +138,6 @@
     <ClCompile Include="include\imgui\imgui_demo.cpp" />
     <ClCompile Include="include\imgui\imgui_draw.cpp" />
     <ClCompile Include="include\imgui\imgui_glfw.cpp" />
-    <ClCompile Include="include\imgui\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="src\cloth_ui.cpp" />
     <ClCompile Include="include\time.cpp" />
     <ClCompile Include="src\external_force.cpp" />
@@ -162,7 +161,6 @@
     <ClInclude Include="include\imgui\imconfig.h" />
     <ClInclude Include="include\imgui\imgui.h" />
     <ClInclude Include="include\imgui\imgui_glfw.h" />
-    <ClInclude Include="include\imgui\imgui_impl_glfw_gl3.h" />
     <ClInclude Include="include\imgui\imgui_internal.h" />
     <ClInclude Include="include\imgui\stb_rect_pack.h" />
     <ClInclude Include="include\imgui\stb_textedit.h" />

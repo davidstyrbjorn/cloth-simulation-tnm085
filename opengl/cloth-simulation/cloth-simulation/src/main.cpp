@@ -12,14 +12,16 @@
 #include"../include/skybox.h"
 #include"../include/external_force.h"
 
+#include<stdio.h>
+
+#include"../include/imgui/imgui.h"
+
 #define GLEW_STATIC
 #include<GL/glew.h>
 #include<GLFW\glfw3.h>
 
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
-
-#include<GLFW/glfw3.h>
+const unsigned int SCR_WIDTH = 800;		
+const unsigned int SCR_HEIGHT = 600;	
 
 int main() {
 	
@@ -42,8 +44,6 @@ int main() {
 	sw->direction = { 1,0,0 };
 	sw->strength = 3;
 	cloth.AddExternalForce(sw);
-	
-	ClothUI UI(&cloth);
 	
 	Quad quad({ 0,0,0 }, { 0,0 });
 
@@ -75,8 +75,6 @@ int main() {
 	glm::vec2 orgMousePos;
 
 	FPSTimer fpsTimer;
-
-
 
 	while (window.IsOpen()) 
 	{	
@@ -128,7 +126,9 @@ int main() {
 		cloth.Draw();
 		
 		//Renders UI!
-		UI.render();
+		ImGui::Begin("test");
+		ImGui::Text("Or alien");
+		ImGui::End();
 
 		// Rendering done!
 		window.Display();

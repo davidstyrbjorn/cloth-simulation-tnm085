@@ -9,6 +9,7 @@
 #include"../include/shader.h"
 
 #include"../include/skybox.h"
+#include"../include/external_force.h"
 
 #define GLEW_STATIC
 #include<GL/glew.h>
@@ -35,6 +36,11 @@ int main() {
 	cc.cd = 2;
 	cc.mass = 0.1f;
 	Cloth cloth(cc, 16);
+
+	SinusWind* sw = new SinusWind;
+	sw->direction = { 1,0,0 };
+	sw->strength = 3;
+	cloth.AddExternalForce(sw);
 
 	Quad quad({ 0,0,0 }, { 0,0 });
 
@@ -66,6 +72,8 @@ int main() {
 	glm::vec2 orgMousePos;
 
 	FPSTimer fpsTimer;
+
+
 
 	while (window.IsOpen()) 
 	{	

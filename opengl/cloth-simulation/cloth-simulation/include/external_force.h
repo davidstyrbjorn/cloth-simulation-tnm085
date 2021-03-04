@@ -1,19 +1,20 @@
 #pragma once
 
 #include<glm/vec3.hpp>
+#include"point.h"
 
 class ExternalForce {
 public:
-	virtual glm::vec3 getForce(float time) = 0;
+	virtual glm::vec3 getForce(float time, const Point& point) = 0;
 
-protected:
-	glm::vec3 
+
+public:
+	float strength = 0.0f;
 };
 
-class SinusWind : ExternalForce {
+class SinusWind : public ExternalForce {
+public:
+	virtual glm::vec3 getForce(float time, const Point& point);
 
-	virtual glm::vec3 getForce(float time) {
-
-	}
-
+	glm::vec3 direction = { 0,0,0 };
 };

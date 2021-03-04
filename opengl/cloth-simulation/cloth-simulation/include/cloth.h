@@ -1,6 +1,7 @@
 #pragma once
 
 #include"point.h"
+#include"external_force.h"
 
 #include<vector>
 #include<glm/vec2.hpp>
@@ -11,6 +12,7 @@ class Cloth {
 public:
 	// Constructs the cloth 
 	Cloth(ClothConfig _config, unsigned int _gridSize);
+	~Cloth(); // @TODO Delete external forces
 
 	// Updates each point in the cloth
 	void Update(float dt);
@@ -18,7 +20,7 @@ public:
 	// Draws the cloth!
 	void Draw();
 
-
+	void AddExternalForce(ExternalForce* external_force);
 
 private:
 	void CreateGridPoints();

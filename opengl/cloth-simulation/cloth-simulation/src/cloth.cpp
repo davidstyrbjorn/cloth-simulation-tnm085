@@ -33,6 +33,10 @@ Cloth::Cloth(ClothConfig _config, unsigned int _gridSize) : clothConfig(_config)
 	// Done!
 }
 
+Cloth::~Cloth()
+{
+}
+
 void Cloth::Update(float dt)
 {	
 	// 1. Loop through and call .step on each point
@@ -60,7 +64,14 @@ void Cloth::Draw()
 	glDrawElements(GL_TRIANGLES, index_count, GL_UNSIGNED_INT, (const void*)0);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
+	// 3. Draw representation for the external forces
+
 	// ...probably no reason to unbind since this project will only render a cloth...
+}
+
+void Cloth::AddExternalForce(ExternalForce* external_force)
+{
+	clothConfig.externalForces.push_back(external_force);
 }
 
 void Cloth::CreateGridPoints()
@@ -68,9 +79,9 @@ void Cloth::CreateGridPoints()
 	gridPoints.clear(); // Empty out all the current grid points
 
 	for (int x = 0; x < gridSize; x++) {
-		for (int y = 0; y < gridSize; y++) {
+		for (int z = 0; z < gridSize; z++) {
 			Point p;
-			p.position = { x*clothConfig.L0, 0, y * clothConfig.L0 };
+			p.position = { x*clothConfig.L0, 0, z * clothConfig.L0 };
 			gridPoints.push_back(p);
 		}
 	}

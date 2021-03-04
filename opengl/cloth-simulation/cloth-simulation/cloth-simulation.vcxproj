@@ -135,6 +135,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="include\time.cpp" />
+    <ClCompile Include="src\external_force.cpp" />
     <ClCompile Include="src\skybox.cpp" />
     <ClCompile Include="src\time.cpp" />
     <ClCompile Include="src\camera.cpp" />
@@ -150,6 +151,8 @@
     <ClInclude Include="include\camera.h" />
     <ClInclude Include="include\cloth.h" />
     <ClInclude Include="include\cloth_config.h" />
+    <ClInclude Include="include\cloth_ui.h" />
+    <ClInclude Include="include\external_force.h" />
     <ClInclude Include="include\point.h" />
     <ClInclude Include="include\quad.h" />
     <ClInclude Include="include\shader.h" />

@@ -4,6 +4,9 @@
 #include<cmath>
 
 #include<glm/glm.hpp>
+#include<GLFW/glfw3.h>
+
+#include"../include/external_force.h"
 
 void Step(Point& p, const ClothConfig& clothConfig, float dt)
 {
@@ -65,8 +68,20 @@ glm::vec3 calculateForce(Point& p, const ClothConfig& clothConfig)
 
 	// Add gravity and damping
 	totalForce += -clothConfig.cd * p.velocity;
-
 	totalForce += glm::vec3(0.0f, -clothConfig.mass*clothConfig.g, 0.0f);
+
+	// Go through and add each external force 
+	for (auto&& force : clothConfig.externalForces) {
+		totalForce += force->getForce(glfwGetTime(), p);
+	}
+
+	//SinusWindPositional s;
+	//s.strength = 4;
+	////s.direction = glm::vec3(0.4, 0, 0.5);
+	//s.position = { 20, 0, 0 };
+	//s.target = p.position;
+	//
+	//totalForce += s.getForce(glfwGetTime());
 
 	// Done
 	return totalForce;

@@ -5,9 +5,12 @@
 
 #include"point.h"
 
+#include"cloth_ui.h"
+
 class ExternalForce;
 
 class Cloth {
+	friend ClothUI;
 public:
 	// Constructs the cloth 
 	Cloth(ClothConfig _config, unsigned int _gridSize);
@@ -23,6 +26,8 @@ public:
 	void AddExternalForce(ExternalForce* external);
 
 	ClothConfig& GetClothConfig();
+
+	void RecreateCloth();
 
 private:
 	void CreateGridPoints();

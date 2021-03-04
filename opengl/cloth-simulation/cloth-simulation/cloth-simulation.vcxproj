@@ -134,6 +134,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\imgui\imgui.cpp" />
+    <ClCompile Include="include\imgui\imgui_demo.cpp" />
+    <ClCompile Include="include\imgui\imgui_draw.cpp" />
+    <ClCompile Include="include\imgui\imgui_glfw.cpp" />
+    <ClCompile Include="include\imgui\imgui_impl_glfw_gl3.cpp" />
+    <ClCompile Include="src\cloth_ui.cpp" />
     <ClCompile Include="include\time.cpp" />
     <ClCompile Include="src\skybox.cpp" />
     <ClCompile Include="src\time.cpp" />
@@ -150,6 +156,16 @@
     <ClInclude Include="include\camera.h" />
     <ClInclude Include="include\cloth.h" />
     <ClInclude Include="include\cloth_config.h" />
+    <ClInclude Include="include\cloth_ui.h" />
+    <ClInclude Include="include\external_force.h" />
+    <ClInclude Include="include\imgui\imconfig.h" />
+    <ClInclude Include="include\imgui\imgui.h" />
+    <ClInclude Include="include\imgui\imgui_glfw.h" />
+    <ClInclude Include="include\imgui\imgui_impl_glfw_gl3.h" />
+    <ClInclude Include="include\imgui\imgui_internal.h" />
+    <ClInclude Include="include\imgui\stb_rect_pack.h" />
+    <ClInclude Include="include\imgui\stb_textedit.h" />
+    <ClInclude Include="include\imgui\stb_truetype.h" />
     <ClInclude Include="include\point.h" />
     <ClInclude Include="include\quad.h" />
     <ClInclude Include="include\shader.h" />

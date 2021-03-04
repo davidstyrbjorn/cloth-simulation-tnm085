@@ -5,6 +5,7 @@
 #include"../include/time.h"
 
 #include"../include/cloth.h"
+#include"../include/cloth_UI.h"
 #include"../include/quad.h"
 #include"../include/shader.h"
 
@@ -35,7 +36,9 @@ int main() {
 	cc.cd = 2;
 	cc.mass = 0.1f;
 	Cloth cloth(cc, 16);
-
+	
+	ClothUI UI(&cloth);
+	
 	Quad quad({ 0,0,0 }, { 0,0 });
 
 	//Skybox Faces
@@ -116,6 +119,9 @@ int main() {
 		// Renders everything todo with the cloth
 		cloth.Draw();
 		
+		//Renders UI!
+		UI.render();
+
 		// Rendering done!
 		window.Display();
 

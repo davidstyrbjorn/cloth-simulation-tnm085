@@ -1,12 +1,12 @@
 #pragma once
+#include "cloth.h"
 
-class Cloth;
+
 
 class ClothUI {
 public:
-	ClothUI(Cloth* cloth) : clothPointer(cloth) {}
-
+	ClothUI(Cloth* cloth);
+	void render();
 private:
 	Cloth* clothPointer;
-
 };

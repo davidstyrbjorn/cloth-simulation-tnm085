@@ -81,7 +81,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\third_party\glfw\include;$(SolutionDir)\third_party\glew\include;$(SolutionDir)\third_party\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\third_party\glfw\include;$(SolutionDir)\third_party\glew\include;$(SolutionDir)\third_party\glm;$(SolutionDir)\third_party\stb-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -108,7 +108,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\third_party\glfw\include;$(SolutionDir)\third_party\glew\include;$(SolutionDir)\third_party\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\third_party\glfw\include;$(SolutionDir)\third_party\glew\include;$(SolutionDir)\third_party\glm;$(SolutionDir)\third_party\stb-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\skybox.cpp" />
     <ClCompile Include="src\time.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\cloth.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="include\point.h" />
     <ClInclude Include="include\quad.h" />
     <ClInclude Include="include\shader.h" />
+    <ClInclude Include="include\skybox.h" />
     <ClInclude Include="include\time.h" />
     <ClInclude Include="include\window.h" />
     <ClInclude Include="include\input.h" />

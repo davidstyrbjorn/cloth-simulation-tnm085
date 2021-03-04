@@ -8,6 +8,8 @@
 #include"../include/quad.h"
 #include"../include/shader.h"
 
+#include"../include/skybox.h"
+
 #define GLEW_STATIC
 #include<GL/glew.h>
 #include<GLFW\glfw3.h>
@@ -35,6 +37,19 @@ int main() {
 	Cloth cloth(cc, 16);
 
 	Quad quad({ 0,0,0 }, { 0,0 });
+
+	//Skybox Faces
+	std::vector<std::string> faces
+	{
+		"skybox/right.jpg",
+		"skybox/left.jpg",
+		"skybox/top.jpg",
+		"skybox/bottom.jpg",
+		"skybox/front.jpg",
+		"skybox/back.jpg"
+	};
+	Skybox sky = Skybox(faces, 2048, 2048, 3);
+	unsigned int cubemapTexture = sky.textureID;
 
 	// timing
 	float currentTime = 0.0f;
@@ -84,6 +99,15 @@ int main() {
 		// camera/view transformation
 		glm::mat4 view = camera.GetViewMatrix();
 		shader.UniformMat4x4("view", view);
+
+		sky.skyShader.Enable();
+		glm::mat4 skyView = glm::mat4(glm::mat3(camera.GetViewMatrix()));
+		sky.skyShader.UniformMat4x4("skyView", skyView);
+		sky.skyShader.UniformMat4x4("projection", projection);
+		sky.Draw();
+		sky.skyShader.Disable();
+
+		shader.Enable();
 
 		// Render a banana, for reference
 		quad.Bind();

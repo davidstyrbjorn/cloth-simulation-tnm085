@@ -12,10 +12,21 @@ void Step(Point& p, const ClothConfig& clothConfig, float dt)
 {
 	if (p.isStatic) return;
 
+	//temp ball
+	p.ballRadius = 5.25f;
+	p.ballPosition = { -5.0f, -1.0f, 0.0f};
+
 	bool f =false;
 	/*-----Euler-----*/
 	if (f) {
 		p.position = p.position + p.velocity * dt; 
+		//collision
+			glm::vec3 offset = p.position - p.ballPosition;
+			
+			if (glm::length(offset) < p.ballRadius) {
+				p.position += glm::normalize(offset) * (p.ballRadius - glm::length(offset));
+			
+		}
 		p.velocity = p.velocity + ((calculateForce(p, clothConfig) + p.accumulatedForce) / clothConfig.mass) * dt;
 		p.accumulatedForce = { 0,0,0 };
 
@@ -28,6 +39,13 @@ void Step(Point& p, const ClothConfig& clothConfig, float dt)
 
 		//Calculate our new position and velocity
 		p.position = p.position + p.velocity * dt + p.acceleration * (dt * dt * 0.5f);
+		//collision
+			glm::vec3 offset = p.position - p.ballPosition;
+
+			if (glm::length(offset) < p.ballRadius) {
+				p.position += glm::normalize(offset) * (p.ballRadius - glm::length(offset));
+			}
+		
 		p.velocity = p.velocity + (p.acceleration + newAcc) * (dt * 0.5f);
 
 		//Set newAcc to our current acceleration
@@ -36,8 +54,11 @@ void Step(Point& p, const ClothConfig& clothConfig, float dt)
 
 }
 
+
+
 glm::vec3 calculateForce(Point& p, const ClothConfig& clothConfig)
 {
+	
 	glm::vec3 totalForce = glm::vec3(0.0f, 0.0f, 0.0f);
 	for(auto&& spring : p.springs){
 		Point& q = *spring.connectedPoint; // Get the connected point
@@ -64,17 +85,20 @@ glm::vec3 calculateForce(Point& p, const ClothConfig& clothConfig)
 			if (!q.isStatic)
 				q.position += correction;
 		}
+
+	
+
+		
 	}
 
 	// Add gravity and damping
 	totalForce += -clothConfig.cd * p.velocity;
 	totalForce += glm::vec3(0.0f, -clothConfig.mass*clothConfig.g, 0.0f);
-
+	
 	// Go through and add each external force 
 	for (auto&& force : clothConfig.externalForces) {
 		totalForce += force->getForce(glfwGetTime(), p);
 	}
-
 	//SinusWindPositional s;
 	//s.strength = 4;
 	////s.direction = glm::vec3(0.4, 0, 0.5);

@@ -20,6 +20,8 @@ struct Point {
 	glm::vec3 velocity		= { 0,0,0 };
 	glm::vec3 acceleration	= { 0,0,0 };
 	glm::vec3 accumulatedForce			= { 0,0,0 };
+	float ballRadius = 0.0f;
+	glm::vec3 ballPosition = { 0,0,0 };
 	std::vector<Spring> springs;
 	bool isStatic = false;
 };

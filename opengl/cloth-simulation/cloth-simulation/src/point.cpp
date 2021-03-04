@@ -75,14 +75,6 @@ glm::vec3 calculateForce(Point& p, const ClothConfig& clothConfig)
 		totalForce += force->getForce(glfwGetTime(), p);
 	}
 
-	//SinusWindPositional s;
-	//s.strength = 4;
-	////s.direction = glm::vec3(0.4, 0, 0.5);
-	//s.position = { 20, 0, 0 };
-	//s.target = p.position;
-	//
-	//totalForce += s.getForce(glfwGetTime());
-
 	// Done
 	return totalForce;
 }

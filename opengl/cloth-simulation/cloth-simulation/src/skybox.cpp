@@ -5,6 +5,7 @@
 #include <iostream>
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
+
 Skybox::Skybox(std::vector<std::string> faces, int width, int height, int nrChannels)
 {
     glGenTextures(1, &textureID);
@@ -87,6 +88,13 @@ Skybox::Skybox(std::vector<std::string> faces, int width, int height, int nrChan
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float)*3, (GLvoid*)0);
 
     skyShader.CreateAndCompileShader("sky_vert.txt", "sky_frag.txt");
+}
+
+Skybox::~Skybox()
+{
+	glDeleteVertexArrays(1, &vao);
+	glDeleteBuffers(1, &vbo);
+	glDeleteTextures(1, &textureID);
 }
 
 void Skybox::Draw() {

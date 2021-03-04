@@ -1,12 +1,11 @@
 #pragma once
 
-#include"point.h"
-#include"external_force.h"
-
 #include<vector>
 #include<glm/vec2.hpp>
 
-class Point;
+#include"point.h"
+
+class ExternalForce;
 
 class Cloth {
 public:
@@ -20,7 +19,8 @@ public:
 	// Draws the cloth!
 	void Draw();
 
-	void AddExternalForce(ExternalForce* external_force);
+	// Adds a new external force to the cloth
+	void AddExternalForce(ExternalForce* external);
 
 	ClothConfig& GetClothConfig();
 

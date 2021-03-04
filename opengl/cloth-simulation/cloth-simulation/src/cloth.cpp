@@ -2,8 +2,11 @@
 
 #include<cmath>
 #include<iostream> //For debug purposes
+
 #define GLEW_STATIC
 #include<GL/glew.h>
+
+#include"../include/external_force.h"
 
 Cloth::Cloth(ClothConfig _config, unsigned int _gridSize) : clothConfig(_config), gridSize(_gridSize), index_count(0)
 {
@@ -35,12 +38,18 @@ Cloth::Cloth(ClothConfig _config, unsigned int _gridSize) : clothConfig(_config)
 
 Cloth::~Cloth()
 {
+	glDeleteVertexArrays(1, &vao);
+	glDeleteBuffers(1, &vbo);
+	glDeleteBuffers(1, &ibo);
+
+	for (int i = 0; i < clothConfig.externalForces.size(); i++) {
+		delete clothConfig.externalForces[i];
+	}
 }
 
 void Cloth::Update(float dt)
 {	
 	// 1. Loop through and call .step on each point
-	
 	for(auto& point : gridPoints)
 	{
 		Step(point, clothConfig, dt);	
@@ -69,9 +78,9 @@ void Cloth::Draw()
 	// ...probably no reason to unbind since this project will only render a cloth...
 }
 
-void Cloth::AddExternalForce(ExternalForce* external_force)
+void Cloth::AddExternalForce(ExternalForce* external)
 {
-	clothConfig.externalForces.push_back(external_force);
+	clothConfig.externalForces.push_back(external);
 }
 
 ClothConfig& Cloth::GetClothConfig()

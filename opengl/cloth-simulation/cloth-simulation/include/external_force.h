@@ -1,12 +1,12 @@
 #pragma once
 
 #include<glm/vec3.hpp>
+
 #include"point.h"
 
 class ExternalForce {
 public:
 	virtual glm::vec3 getForce(float time, const Point& point) = 0;
-
 
 public:
 	float strength = 0.0f;

@@ -48,8 +48,6 @@ int main() {
 	sw->strength = 3;
 	cloth.AddExternalForce(sw);
 	
-	
-
 	Quad quad({ 0,0,0 }, { 0,0 });
 
 	//Skybox Faces
@@ -91,7 +89,7 @@ int main() {
 		}
 		
 		camera.ProcessKeyboard(deltaTime);
-		if(window.IsMouseDown()){
+		if(window.IsRightMouseDown()){
 			auto mousepos = window.GetRelativeMousePosition();
 			camera.ProcessMouseMovement(mousepos.x - orgMousePos.x ,  orgMousePos.y - mousepos.y);
 		}

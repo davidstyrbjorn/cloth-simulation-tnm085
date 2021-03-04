@@ -5,8 +5,8 @@ class Cloth;
 
 class ClothUI {
 public:
-	ClothUI(Cloth& cloth) : clothPointer(&cloth) {}
+	ClothUI(Cloth& cloth) : cloth(&cloth) {}
 	void Render();
 private:
-	Cloth* clothPointer;
+	Cloth* cloth;
 };

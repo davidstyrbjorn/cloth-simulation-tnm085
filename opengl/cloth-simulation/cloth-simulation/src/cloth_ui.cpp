@@ -18,8 +18,6 @@ void ClothUI::Render()
 	ImGui::SliderFloat("Total Mass", &clothConfig.mass, 0.1f, 1.0f);
 
 	if (ImGui::Button("Update")) {
-		
-
 
 	}
 

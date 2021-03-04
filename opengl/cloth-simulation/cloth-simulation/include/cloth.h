@@ -27,7 +27,8 @@ public:
 
 	ClothConfig& GetClothConfig();
 
-	void RecreateCloth();
+	// Recreates everything from the ground up, should be done after the gridSize has changed
+	void Recreate();
 
 private:
 	void CreateGridPoints();

@@ -10,11 +10,11 @@ public:
 
 public:
 	float strength = 0.0f;
+	glm::vec3 direction = { 0,0,0 };
 };
 
 class SinusWind : public ExternalForce {
 public:
 	virtual glm::vec3 getForce(float time, const Point& point);
 
-	glm::vec3 direction = { 0,0,0 };
 };

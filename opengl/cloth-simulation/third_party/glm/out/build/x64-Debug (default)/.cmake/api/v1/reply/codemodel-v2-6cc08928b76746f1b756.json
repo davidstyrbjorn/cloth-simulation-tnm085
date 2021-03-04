@@ -1,0 +1,1859 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "glm",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "glm"
+				},
+				{
+					"build" : "test",
+					"childIndexes" : 
+					[
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test"
+				},
+				{
+					"build" : "test/bug",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/bug",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "test/core",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/core",
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52
+					]
+				},
+				{
+					"build" : "test/ext",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/ext",
+					"targetIndexes" : 
+					[
+						53,
+						54,
+						55,
+						56,
+						57,
+						58,
+						59,
+						60,
+						61,
+						62,
+						63,
+						64,
+						65,
+						66,
+						67,
+						68,
+						69,
+						70,
+						71,
+						72,
+						73,
+						74,
+						75,
+						76,
+						77,
+						78,
+						79,
+						80,
+						81,
+						82,
+						83,
+						84,
+						85,
+						86,
+						87,
+						88,
+						89,
+						90,
+						91,
+						92,
+						93,
+						94,
+						95,
+						96,
+						97,
+						98,
+						99,
+						100,
+						101,
+						102,
+						103
+					]
+				},
+				{
+					"build" : "test/gtc",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/gtc",
+					"targetIndexes" : 
+					[
+						104,
+						105,
+						106,
+						107,
+						108,
+						109,
+						110,
+						111,
+						112,
+						113,
+						114,
+						115,
+						116,
+						117,
+						118,
+						119,
+						120,
+						121,
+						122,
+						123
+					]
+				},
+				{
+					"build" : "test/gtx",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/gtx",
+					"targetIndexes" : 
+					[
+						124,
+						125,
+						126,
+						127,
+						128,
+						129,
+						130,
+						131,
+						132,
+						133,
+						134,
+						135,
+						136,
+						137,
+						138,
+						139,
+						140,
+						141,
+						142,
+						143,
+						144,
+						145,
+						146,
+						147,
+						148,
+						149,
+						150,
+						151,
+						152,
+						153,
+						154,
+						155,
+						156,
+						157,
+						158,
+						159,
+						160,
+						161,
+						162,
+						163,
+						164,
+						165,
+						166,
+						167,
+						168,
+						169,
+						170,
+						171,
+						172,
+						173,
+						174,
+						175,
+						176,
+						177,
+						178,
+						179,
+						180,
+						181
+					]
+				},
+				{
+					"build" : "test/perf",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/perf",
+					"targetIndexes" : 
+					[
+						182,
+						183,
+						184,
+						185,
+						186,
+						187
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					],
+					"name" : "glm",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55,
+						56,
+						57,
+						58,
+						59,
+						60,
+						61,
+						62,
+						63,
+						64,
+						65,
+						66,
+						67,
+						68,
+						69,
+						70,
+						71,
+						72,
+						73,
+						74,
+						75,
+						76,
+						77,
+						78,
+						79,
+						80,
+						81,
+						82,
+						83,
+						84,
+						85,
+						86,
+						87,
+						88,
+						89,
+						90,
+						91,
+						92,
+						93,
+						94,
+						95,
+						96,
+						97,
+						98,
+						99,
+						100,
+						101,
+						102,
+						103,
+						104,
+						105,
+						106,
+						107,
+						108,
+						109,
+						110,
+						111,
+						112,
+						113,
+						114,
+						115,
+						116,
+						117,
+						118,
+						119,
+						120,
+						121,
+						122,
+						123,
+						124,
+						125,
+						126,
+						127,
+						128,
+						129,
+						130,
+						131,
+						132,
+						133,
+						134,
+						135,
+						136,
+						137,
+						138,
+						139,
+						140,
+						141,
+						142,
+						143,
+						144,
+						145,
+						146,
+						147,
+						148,
+						149,
+						150,
+						151,
+						152,
+						153,
+						154,
+						155,
+						156,
+						157,
+						158,
+						159,
+						160,
+						161,
+						162,
+						163,
+						164,
+						165,
+						166,
+						167,
+						168,
+						169,
+						170,
+						171,
+						172,
+						173,
+						174,
+						175,
+						176,
+						177,
+						178,
+						179,
+						180,
+						181,
+						182,
+						183,
+						184,
+						185,
+						186,
+						187
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "test-bug_ms_vec_static::@ae7637e0948d70333d5b",
+					"jsonFile" : "target-test-bug_ms_vec_static-Debug-5be53dd035632b2d60b7.json",
+					"name" : "test-bug_ms_vec_static",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_cpp_constexpr::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_cpp_constexpr-Debug-53bc0ce24c93eb752350.json",
+					"name" : "test-core_cpp_constexpr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_cpp_defaulted_ctor::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_cpp_defaulted_ctor-Debug-73ca866ea8a280250793.json",
+					"name" : "test-core_cpp_defaulted_ctor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_aligned_gentypes::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_aligned_gentypes-Debug-35804bbbb176062bcc8b.json",
+					"name" : "test-core_force_aligned_gentypes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_arch_unknown::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_arch_unknown-Debug-c1a026da06f91ae35294.json",
+					"name" : "test-core_force_arch_unknown",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_compiler_unknown::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_compiler_unknown-Debug-2d4caa56835e799be336.json",
+					"name" : "test-core_force_compiler_unknown",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_ctor_init::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_ctor_init-Debug-ce89542d4362dbecf90a.json",
+					"name" : "test-core_force_ctor_init",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_cxx03::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_cxx03-Debug-3e95e11fc46bc0b3032d.json",
+					"name" : "test-core_force_cxx03",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_cxx98::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_cxx98-Debug-89bc82bb3ef4c25653c0.json",
+					"name" : "test-core_force_cxx98",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_cxx_unknown::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_cxx_unknown-Debug-90e7cd1b794d72be4a28.json",
+					"name" : "test-core_force_cxx_unknown",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_explicit_ctor::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_explicit_ctor-Debug-f71a82d24563233baf79.json",
+					"name" : "test-core_force_explicit_ctor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_inline::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_inline-Debug-0a3d20d51a332b9285c0.json",
+					"name" : "test-core_force_inline",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_platform_unknown::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_platform_unknown-Debug-d1d5e8a90a1ef0b97658.json",
+					"name" : "test-core_force_platform_unknown",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_pure::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_pure-Debug-55b45d844288d00f5617.json",
+					"name" : "test-core_force_pure",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_quat_wxyz::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_quat_wxyz-Debug-e64ca1f2711ed24ee94a.json",
+					"name" : "test-core_force_quat_wxyz",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_unrestricted_gentype::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_unrestricted_gentype-Debug-5d8cb6fad4c281751c18.json",
+					"name" : "test-core_force_unrestricted_gentype",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_force_xyzw_only::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_force_xyzw_only-Debug-662903b0f0f2c212574c.json",
+					"name" : "test-core_force_xyzw_only",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_common::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_common-Debug-89bc7a177b7e51fe41a3.json",
+					"name" : "test-core_func_common",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_exponential::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_exponential-Debug-26bd44dc847f4e081f39.json",
+					"name" : "test-core_func_exponential",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_geometric::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_geometric-Debug-07af2f08d54a0496fe37.json",
+					"name" : "test-core_func_geometric",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_integer::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_integer-Debug-0ea766e9cf160570e4a8.json",
+					"name" : "test-core_func_integer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_integer_bit_count::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_integer_bit_count-Debug-d91f9a4a706da8992e3a.json",
+					"name" : "test-core_func_integer_bit_count",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_integer_find_lsb::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_integer_find_lsb-Debug-d88b6ff4391707c1622f.json",
+					"name" : "test-core_func_integer_find_lsb",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_integer_find_msb::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_integer_find_msb-Debug-191116df265948260ca9.json",
+					"name" : "test-core_func_integer_find_msb",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_matrix::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_matrix-Debug-a640369034ba4cc46abb.json",
+					"name" : "test-core_func_matrix",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_noise::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_noise-Debug-f80c51b81e3d9a104066.json",
+					"name" : "test-core_func_noise",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_packing::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_packing-Debug-94de38c8a34b654f87eb.json",
+					"name" : "test-core_func_packing",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_swizzle::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_swizzle-Debug-2e1318d3c4b22d8ca6b9.json",
+					"name" : "test-core_func_swizzle",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_trigonometric::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_trigonometric-Debug-63c7736713757c31d08c.json",
+					"name" : "test-core_func_trigonometric",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_func_vector_relational::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_func_vector_relational-Debug-629e80f27eab794b6e36.json",
+					"name" : "test-core_func_vector_relational",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_setup_force_cxx98::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_setup_force_cxx98-Debug-f89b3a6c68cc9973cca1.json",
+					"name" : "test-core_setup_force_cxx98",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_setup_force_size_t_length::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_setup_force_size_t_length-Debug-0fd900d40474651df5f4.json",
+					"name" : "test-core_setup_force_size_t_length",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_setup_message::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_setup_message-Debug-cdfbd3b1a24cde197c24.json",
+					"name" : "test-core_setup_message",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_setup_platform_unknown::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_setup_platform_unknown-Debug-0dccc9886ca1519f1681.json",
+					"name" : "test-core_setup_platform_unknown",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_setup_precision::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_setup_precision-Debug-25c12981f4b3ce23ee9d.json",
+					"name" : "test-core_setup_precision",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_aligned::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_aligned-Debug-6b353b77be8e0351c045.json",
+					"name" : "test-core_type_aligned",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_cast::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_cast-Debug-affaeefaf8e2215e012d.json",
+					"name" : "test-core_type_cast",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_ctor::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_ctor-Debug-a72856f989862e127ec2.json",
+					"name" : "test-core_type_ctor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_int::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_int-Debug-130f974067d3eb6c95b3.json",
+					"name" : "test-core_type_int",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_length::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_length-Debug-036cc5c7ecc136548a0f.json",
+					"name" : "test-core_type_length",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_mat2x2::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_mat2x2-Debug-170b2a8667db44ec4aa4.json",
+					"name" : "test-core_type_mat2x2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_mat2x3::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_mat2x3-Debug-b7f3d96fbf1e81d842f6.json",
+					"name" : "test-core_type_mat2x3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_mat2x4::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_mat2x4-Debug-6c2c3551d585a425adcb.json",
+					"name" : "test-core_type_mat2x4",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_mat3x2::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_mat3x2-Debug-e87262658bb404c44b94.json",
+					"name" : "test-core_type_mat3x2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_mat3x3::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_mat3x3-Debug-f5417bada6d784f1a33e.json",
+					"name" : "test-core_type_mat3x3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_mat3x4::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_mat3x4-Debug-e163798903b9c954ea77.json",
+					"name" : "test-core_type_mat3x4",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_mat4x2::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_mat4x2-Debug-b6a5b4df5b5b8052b4a3.json",
+					"name" : "test-core_type_mat4x2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_mat4x3::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_mat4x3-Debug-128e243a37615c2daada.json",
+					"name" : "test-core_type_mat4x3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_mat4x4::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_mat4x4-Debug-3448bd8f60af36faccc1.json",
+					"name" : "test-core_type_mat4x4",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_vec1::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_vec1-Debug-695474a4c25fb1d61ba2.json",
+					"name" : "test-core_type_vec1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_vec2::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_vec2-Debug-b274600afe6e50d911b3.json",
+					"name" : "test-core_type_vec2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_vec3::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_vec3-Debug-07efdaae383748cf5cdf.json",
+					"name" : "test-core_type_vec3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test-core_type_vec4::@7876481172fd1a677df2",
+					"jsonFile" : "target-test-core_type_vec4-Debug-c2ca8299be4722a8dce6.json",
+					"name" : "test-core_type_vec4",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_common::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_common-Debug-9ae6b659eb74e3e0858b.json",
+					"name" : "test-ext_matrix_common",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_int2x2_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_int2x2_sized-Debug-1bb42e35b4d0b38bdd31.json",
+					"name" : "test-ext_matrix_int2x2_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_int2x3_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_int2x3_sized-Debug-8874796d5137194d0e49.json",
+					"name" : "test-ext_matrix_int2x3_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_int2x4_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_int2x4_sized-Debug-c72b9994c0a5570ee3d4.json",
+					"name" : "test-ext_matrix_int2x4_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_int3x2_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_int3x2_sized-Debug-4ce7cf3b8ccf487c138f.json",
+					"name" : "test-ext_matrix_int3x2_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_int3x3_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_int3x3_sized-Debug-1aceb2301fb20248c46a.json",
+					"name" : "test-ext_matrix_int3x3_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_int3x4_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_int3x4_sized-Debug-1669e0d4b6140a05c123.json",
+					"name" : "test-ext_matrix_int3x4_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_int4x2_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_int4x2_sized-Debug-ba958f48982406d57f47.json",
+					"name" : "test-ext_matrix_int4x2_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_int4x3_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_int4x3_sized-Debug-8a2fb9d52c64d96652dc.json",
+					"name" : "test-ext_matrix_int4x3_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_int4x4_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_int4x4_sized-Debug-ab135b6f8f602bc09d83.json",
+					"name" : "test-ext_matrix_int4x4_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_relational::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_relational-Debug-0eec5e8b051370731c46.json",
+					"name" : "test-ext_matrix_relational",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_transform::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_transform-Debug-37d40c71600611f5cf80.json",
+					"name" : "test-ext_matrix_transform",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_uint2x2_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_uint2x2_sized-Debug-cfd42bad31343b0cfa72.json",
+					"name" : "test-ext_matrix_uint2x2_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_uint2x3_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_uint2x3_sized-Debug-f5ebedf7ba0ba39aac3c.json",
+					"name" : "test-ext_matrix_uint2x3_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_uint2x4_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_uint2x4_sized-Debug-112044791d4393f07708.json",
+					"name" : "test-ext_matrix_uint2x4_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_uint3x2_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_uint3x2_sized-Debug-47c10db7409b9ac9fa0f.json",
+					"name" : "test-ext_matrix_uint3x2_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_uint3x3_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_uint3x3_sized-Debug-9691fecd6a9d6042adc5.json",
+					"name" : "test-ext_matrix_uint3x3_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_uint3x4_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_uint3x4_sized-Debug-b2cf07a0ddb205ae8c75.json",
+					"name" : "test-ext_matrix_uint3x4_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_uint4x2_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_uint4x2_sized-Debug-21d99d255e683fcb5589.json",
+					"name" : "test-ext_matrix_uint4x2_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_uint4x3_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_uint4x3_sized-Debug-fb8421dc3e4f60c9b114.json",
+					"name" : "test-ext_matrix_uint4x3_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_matrix_uint4x4_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_matrix_uint4x4_sized-Debug-863dc3bc9ae5c3f6a2d7.json",
+					"name" : "test-ext_matrix_uint4x4_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_quaternion_common::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_quaternion_common-Debug-c6c911002525bd4bdb92.json",
+					"name" : "test-ext_quaternion_common",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_quaternion_exponential::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_quaternion_exponential-Debug-6136994ca2d74b22da41.json",
+					"name" : "test-ext_quaternion_exponential",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_quaternion_geometric::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_quaternion_geometric-Debug-87ec205e0b87dbe91901.json",
+					"name" : "test-ext_quaternion_geometric",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_quaternion_relational::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_quaternion_relational-Debug-eefa6cb1eb72ec708934.json",
+					"name" : "test-ext_quaternion_relational",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_quaternion_transform::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_quaternion_transform-Debug-6443e636027bbc616535.json",
+					"name" : "test-ext_quaternion_transform",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_quaternion_trigonometric::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_quaternion_trigonometric-Debug-b5e5309255b122d802db.json",
+					"name" : "test-ext_quaternion_trigonometric",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_quaternion_type::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_quaternion_type-Debug-ae56f58a8e67b41e2d17.json",
+					"name" : "test-ext_quaternion_type",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_scalar_common::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_scalar_common-Debug-5f385e8c9859d3f2e84d.json",
+					"name" : "test-ext_scalar_common",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_scalar_constants::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_scalar_constants-Debug-0972db6ea0f52f10418f.json",
+					"name" : "test-ext_scalar_constants",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_scalar_int_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_scalar_int_sized-Debug-a6e8464aa35802e7f44e.json",
+					"name" : "test-ext_scalar_int_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_scalar_integer::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_scalar_integer-Debug-3dcfc605389842efd189.json",
+					"name" : "test-ext_scalar_integer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_scalar_relational::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_scalar_relational-Debug-d674332a35fad602c4fc.json",
+					"name" : "test-ext_scalar_relational",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_scalar_uint_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_scalar_uint_sized-Debug-59179ae90124e9497e13.json",
+					"name" : "test-ext_scalar_uint_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_scalar_ulp::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_scalar_ulp-Debug-d2861a3a4e7f980f39bb.json",
+					"name" : "test-ext_scalar_ulp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vec1::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vec1-Debug-a2c40d92f5747c792f84.json",
+					"name" : "test-ext_vec1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_bool1::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_bool1-Debug-b3fe01f82fbdea68df9e.json",
+					"name" : "test-ext_vector_bool1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_common::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_common-Debug-e16ee15aba4b0e1a14a1.json",
+					"name" : "test-ext_vector_common",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_iec559::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_iec559-Debug-581318cf6601a4ef5f24.json",
+					"name" : "test-ext_vector_iec559",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_int1_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_int1_sized-Debug-53e4d1859b6be4b6c140.json",
+					"name" : "test-ext_vector_int1_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_int2_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_int2_sized-Debug-2b427842b8f3f179ad82.json",
+					"name" : "test-ext_vector_int2_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_int3_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_int3_sized-Debug-5b2accb627843fcd3af7.json",
+					"name" : "test-ext_vector_int3_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_int4_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_int4_sized-Debug-09e8280526667ff868d5.json",
+					"name" : "test-ext_vector_int4_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_integer::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_integer-Debug-3b46ae46ad4f6f26a519.json",
+					"name" : "test-ext_vector_integer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_integer_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_integer_sized-Debug-27a9749cca697d36ff3d.json",
+					"name" : "test-ext_vector_integer_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_relational::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_relational-Debug-6f4bfed8d3ac9bad2dac.json",
+					"name" : "test-ext_vector_relational",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_uint1_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_uint1_sized-Debug-5c7f781da3e22053c1fc.json",
+					"name" : "test-ext_vector_uint1_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_uint2_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_uint2_sized-Debug-b5591d72ae19b7a29913.json",
+					"name" : "test-ext_vector_uint2_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_uint3_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_uint3_sized-Debug-d20022ccf76628a755c3.json",
+					"name" : "test-ext_vector_uint3_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_uint4_sized::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_uint4_sized-Debug-cab31c29880c9ebadac4.json",
+					"name" : "test-ext_vector_uint4_sized",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "test-ext_vector_ulp::@84bc9087c80d145699a9",
+					"jsonFile" : "target-test-ext_vector_ulp-Debug-e3729dff9e8fd501838a.json",
+					"name" : "test-ext_vector_ulp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_bitfield::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_bitfield-Debug-0110b457af9201582b2c.json",
+					"name" : "test-gtc_bitfield",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_color_space::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_color_space-Debug-3a017d3acd90f3ab8a04.json",
+					"name" : "test-gtc_color_space",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_constants::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_constants-Debug-dedda0f658fdef5d186e.json",
+					"name" : "test-gtc_constants",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_epsilon::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_epsilon-Debug-5a6f65c4a0c8282a5ccd.json",
+					"name" : "test-gtc_epsilon",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_integer::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_integer-Debug-10713abf718ab8e78d72.json",
+					"name" : "test-gtc_integer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_matrix_access::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_matrix_access-Debug-cdbf19254403175c69b7.json",
+					"name" : "test-gtc_matrix_access",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_matrix_integer::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_matrix_integer-Debug-eede6c6f20c4d4b96800.json",
+					"name" : "test-gtc_matrix_integer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_matrix_inverse::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_matrix_inverse-Debug-2a1e7744975b5bad82a9.json",
+					"name" : "test-gtc_matrix_inverse",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_matrix_transform::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_matrix_transform-Debug-1e2d67f478fa60fa95b8.json",
+					"name" : "test-gtc_matrix_transform",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_noise::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_noise-Debug-4bc01282ee81e3f1fbfa.json",
+					"name" : "test-gtc_noise",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_packing::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_packing-Debug-74481c8a9bbf1d965fd3.json",
+					"name" : "test-gtc_packing",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_quaternion::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_quaternion-Debug-bcc42f874aab2007b82e.json",
+					"name" : "test-gtc_quaternion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_random::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_random-Debug-8a94d99719f823a1d5e8.json",
+					"name" : "test-gtc_random",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_reciprocal::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_reciprocal-Debug-cd5a51b00f18c18b82b4.json",
+					"name" : "test-gtc_reciprocal",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_round::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_round-Debug-ac4840ce9b4aa223c304.json",
+					"name" : "test-gtc_round",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_type_aligned::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_type_aligned-Debug-2bbe044aaa1f1a219edf.json",
+					"name" : "test-gtc_type_aligned",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_type_precision::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_type_precision-Debug-f6fc47923ea84db17951.json",
+					"name" : "test-gtc_type_precision",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_type_ptr::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_type_ptr-Debug-3ad088087666ffe8fd81.json",
+					"name" : "test-gtc_type_ptr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_ulp::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_ulp-Debug-81879392bea2f694d8b5.json",
+					"name" : "test-gtc_ulp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "test-gtc_vec1::@e3b14858f43970fb5f5c",
+					"jsonFile" : "target-test-gtc_vec1-Debug-59f3cbabaca52f5c5af9.json",
+					"name" : "test-gtc_vec1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx-Debug-7044aea137bd6d252e0d.json",
+					"name" : "test-gtx",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_associated_min_max::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_associated_min_max-Debug-cbdb0a3913eb108b8003.json",
+					"name" : "test-gtx_associated_min_max",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_closest_point::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_closest_point-Debug-e3cd60266369e69770d8.json",
+					"name" : "test-gtx_closest_point",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_color_encoding::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_color_encoding-Debug-ddd03e6a4e8a33cb2a42.json",
+					"name" : "test-gtx_color_encoding",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_color_space::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_color_space-Debug-67fc7adfc160bdfa823f.json",
+					"name" : "test-gtx_color_space",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_color_space_YCoCg::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_color_space_YCoCg-Debug-83a0812f674e696a5fbb.json",
+					"name" : "test-gtx_color_space_YCoCg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_common::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_common-Debug-b50dd367dd466fede144.json",
+					"name" : "test-gtx_common",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_compatibility::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_compatibility-Debug-4d66523f499732690a3f.json",
+					"name" : "test-gtx_compatibility",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_component_wise::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_component_wise-Debug-187df3be18bee1342b34.json",
+					"name" : "test-gtx_component_wise",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_dual_quaternion::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_dual_quaternion-Debug-c4c65b4b6d41d63d8c74.json",
+					"name" : "test-gtx_dual_quaternion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_easing::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_easing-Debug-2c05ce760bc7e6315c27.json",
+					"name" : "test-gtx_easing",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_euler_angle::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_euler_angle-Debug-594a59d7cf589f3990d2.json",
+					"name" : "test-gtx_euler_angle",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_extend::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_extend-Debug-d0eb78732f43053f39bf.json",
+					"name" : "test-gtx_extend",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_extended_min_max::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_extended_min_max-Debug-120bd472a2225498fea0.json",
+					"name" : "test-gtx_extended_min_max",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_exterior_product::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_exterior_product-Debug-541d3e47d75cf82d5658.json",
+					"name" : "test-gtx_exterior_product",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_fast_exponential::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_fast_exponential-Debug-eda4002da117f6870487.json",
+					"name" : "test-gtx_fast_exponential",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_fast_square_root::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_fast_square_root-Debug-53792cc28e4db8f2ef20.json",
+					"name" : "test-gtx_fast_square_root",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_fast_trigonometry::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_fast_trigonometry-Debug-09af9866c54f7bba5f38.json",
+					"name" : "test-gtx_fast_trigonometry",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_functions::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_functions-Debug-5d7e6925c8d10915e51d.json",
+					"name" : "test-gtx_functions",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_gradient_paint::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_gradient_paint-Debug-2edcc51cea5cf0adfbab.json",
+					"name" : "test-gtx_gradient_paint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_handed_coordinate_space::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_handed_coordinate_space-Debug-bfc945b5c1b71f647466.json",
+					"name" : "test-gtx_handed_coordinate_space",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_integer::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_integer-Debug-bbf27fd764b361f8a2f9.json",
+					"name" : "test-gtx_integer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_intersect::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_intersect-Debug-cfc7e3ea400851b3637b.json",
+					"name" : "test-gtx_intersect",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_io::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_io-Debug-1a7863c27b95175aa751.json",
+					"name" : "test-gtx_io",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_load::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_load-Debug-45be9d41df2992cfc6e4.json",
+					"name" : "test-gtx_load",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_log_base::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_log_base-Debug-86b0545f3a300d2bc496.json",
+					"name" : "test-gtx_log_base",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_matrix_cross_product::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_matrix_cross_product-Debug-a6ef28ae2b8105912a04.json",
+					"name" : "test-gtx_matrix_cross_product",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_matrix_decompose::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_matrix_decompose-Debug-1c58af53b9ec76b77c9a.json",
+					"name" : "test-gtx_matrix_decompose",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_matrix_factorisation::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_matrix_factorisation-Debug-6af720d0edb97e56d442.json",
+					"name" : "test-gtx_matrix_factorisation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_matrix_interpolation::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_matrix_interpolation-Debug-06b69ceccc919c5e39b5.json",
+					"name" : "test-gtx_matrix_interpolation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_matrix_major_storage::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_matrix_major_storage-Debug-0028f2a48fa4b4f8f57a.json",
+					"name" : "test-gtx_matrix_major_storage",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_matrix_operation::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_matrix_operation-Debug-f7202478efe003a332f5.json",
+					"name" : "test-gtx_matrix_operation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_matrix_query::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_matrix_query-Debug-28d5f40231425ca93145.json",
+					"name" : "test-gtx_matrix_query",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_matrix_transform_2d::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_matrix_transform_2d-Debug-8c78faf96f8d8af9e363.json",
+					"name" : "test-gtx_matrix_transform_2d",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_norm::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_norm-Debug-beabf0c13e9cbd123268.json",
+					"name" : "test-gtx_norm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_normal::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_normal-Debug-55e3dfa1f53880c8f98a.json",
+					"name" : "test-gtx_normal",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_normalize_dot::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_normalize_dot-Debug-bce8ccee64b0d52dbe87.json",
+					"name" : "test-gtx_normalize_dot",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_number_precision::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_number_precision-Debug-b39bbe5f29972d615ce3.json",
+					"name" : "test-gtx_number_precision",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_optimum_pow::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_optimum_pow-Debug-dff1c6438a400edd0f0b.json",
+					"name" : "test-gtx_optimum_pow",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_orthonormalize::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_orthonormalize-Debug-881c910ae8e8e9ae9652.json",
+					"name" : "test-gtx_orthonormalize",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_perpendicular::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_perpendicular-Debug-3b3062cb9fdf87ca9a9b.json",
+					"name" : "test-gtx_perpendicular",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_polar_coordinates::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_polar_coordinates-Debug-41b65d5d0f34ee920983.json",
+					"name" : "test-gtx_polar_coordinates",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_projection::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_projection-Debug-a883c885f9385336b651.json",
+					"name" : "test-gtx_projection",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_quaternion::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_quaternion-Debug-01b6edce893034763e4e.json",
+					"name" : "test-gtx_quaternion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_range::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_range-Debug-f3dde122a9c7bdfa33bc.json",
+					"name" : "test-gtx_range",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_rotate_normalized_axis::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_rotate_normalized_axis-Debug-1ae08ce9e72b28514ab9.json",
+					"name" : "test-gtx_rotate_normalized_axis",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_rotate_vector::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_rotate_vector-Debug-5e459851cd8f8b8d44c8.json",
+					"name" : "test-gtx_rotate_vector",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_scalar_multiplication::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_scalar_multiplication-Debug-e9371cea2d73a5ad7983.json",
+					"name" : "test-gtx_scalar_multiplication",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_scalar_relational::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_scalar_relational-Debug-cdcabd1b16b2d36e4e8d.json",
+					"name" : "test-gtx_scalar_relational",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_spline::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_spline-Debug-69845d67b02b3e749224.json",
+					"name" : "test-gtx_spline",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_string_cast::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_string_cast-Debug-a72b6cf4af01b6d19d16.json",
+					"name" : "test-gtx_string_cast",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_texture::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_texture-Debug-21a999915fad88414985.json",
+					"name" : "test-gtx_texture",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_type_aligned::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_type_aligned-Debug-cda1bdf1ca94d230667e.json",
+					"name" : "test-gtx_type_aligned",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_type_trait::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_type_trait-Debug-e1736b0467ecea6f0397.json",
+					"name" : "test-gtx_type_trait",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_vec_swizzle::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_vec_swizzle-Debug-79bce86680ebeecd7b79.json",
+					"name" : "test-gtx_vec_swizzle",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_vector_angle::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_vector_angle-Debug-2645d3e282688440e379.json",
+					"name" : "test-gtx_vector_angle",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_vector_query::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_vector_query-Debug-61f0ae624e36cfa2bc6a.json",
+					"name" : "test-gtx_vector_query",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "test-gtx_wrap::@8d828a5cd8df73352c5e",
+					"jsonFile" : "target-test-gtx_wrap-Debug-c82dba54269c13decd88.json",
+					"name" : "test-gtx_wrap",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "test-perf_matrix_div::@f0c096478d2e57ea834f",
+					"jsonFile" : "target-test-perf_matrix_div-Debug-d830d3b543bfbb3f0013.json",
+					"name" : "test-perf_matrix_div",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "test-perf_matrix_inverse::@f0c096478d2e57ea834f",
+					"jsonFile" : "target-test-perf_matrix_inverse-Debug-7285492ba34e562ad21d.json",
+					"name" : "test-perf_matrix_inverse",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "test-perf_matrix_mul::@f0c096478d2e57ea834f",
+					"jsonFile" : "target-test-perf_matrix_mul-Debug-307e50cfa89cd7b4cf4a.json",
+					"name" : "test-perf_matrix_mul",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "test-perf_matrix_mul_vector::@f0c096478d2e57ea834f",
+					"jsonFile" : "target-test-perf_matrix_mul_vector-Debug-035b26cc6223db6f5c96.json",
+					"name" : "test-perf_matrix_mul_vector",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "test-perf_matrix_transpose::@f0c096478d2e57ea834f",
+					"jsonFile" : "target-test-perf_matrix_transpose-Debug-dbf0b23560284182209c.json",
+					"name" : "test-perf_matrix_transpose",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "test-perf_vector_mul_matrix::@f0c096478d2e57ea834f",
+					"jsonFile" : "target-test-perf_vector_mul_matrix-Debug-6a2e9e4cf7b46708455c.json",
+					"name" : "test-perf_vector_mul_matrix",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Max/Documents/GitHub/TNM085-cloth-simulation/opengl/cloth-simulation/third_party/glm/out/build/x64-Debug (default)",
+		"source" : "C:/Users/Max/Documents/GitHub/TNM085-cloth-simulation/opengl/cloth-simulation/third_party/glm"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 1
+	}
+}

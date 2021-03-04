@@ -21,7 +21,6 @@ void ClothUI::Render()
 	ImGui::Text("External Forces");
 	//ImGui::SliderFloat("Wind Direction", &clothConfig.L0, 0.0f, 3.0f);
 
-
 	ImGui::Text("Grid");
 	static int newClothSize = cloth->gridSize;
 	ImGui::SliderInt("Grid Size", &newClothSize, 2, 2000);

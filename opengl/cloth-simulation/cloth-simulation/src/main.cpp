@@ -40,11 +40,11 @@ int main() {
 	cc.mass = 0.1f;
 	Cloth cloth(cc, 16);
 	
-	SinusWind* sw = new SinusWind;
-	sw->direction = { 1,0,0 };
-	sw->strength = 3;
-	cloth.AddExternalForce(sw);
-	
+	SinusWind* force = new SinusWind;
+	//force->direction = {0.5, 0, 0 };
+	//force->strength = 3;
+	//cloth.AddExternalForce(force);
+
 	Quad quad({ 0,0,0 }, { 0,0 });
 
 	//Skybox Faces

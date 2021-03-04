@@ -5,6 +5,7 @@
 #include"../include/time.h"
 
 #include"../include/cloth.h"
+#include"../include/cloth_UI.h"
 #include"../include/quad.h"
 #include"../include/shader.h"
 
@@ -41,7 +42,9 @@ int main() {
 	sw->direction = { 1,0,0 };
 	sw->strength = 3;
 	cloth.AddExternalForce(sw);
-
+	
+	ClothUI UI(&cloth);
+	
 	Quad quad({ 0,0,0 }, { 0,0 });
 
 	//Skybox Faces
@@ -124,6 +127,9 @@ int main() {
 		// Renders everything todo with the cloth
 		cloth.Draw();
 		
+		//Renders UI!
+		UI.render();
+
 		// Rendering done!
 		window.Display();
 

@@ -30,6 +30,8 @@ Window::Window(int x, int y, std::string title) : windowSize(x, y), mouseDown(fa
 	// Set the window user pointer, mainly so the Input class can use it
 	glfwSetWindowUserPointer(glfwWindow, this);
 
+	// ImGUi callbacks installation?
+
 	// Input callbacks
 	glfwSetKeyCallback(glfwWindow, key_callback);
 	glfwSetMouseButtonCallback(glfwWindow, mouse_button_callback);
@@ -133,12 +135,12 @@ void Window::mouse_button_callback(GLFWwindow* window, int button, int action, i
 
 void Window::scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
-	// Do nothing
+	// Do nothing (ImGui)
 }
 
 void Window::character_callback(GLFWwindow* window, unsigned int codepoint)
 {
-	// Do nothing
+	// Do nothing (ImGui)
 }
 
 void Window::window_size_callback(GLFWwindow* window, int width, int height)

@@ -91,23 +91,23 @@ int main() {
 		// Clear the window
 		window.Clear(glm::vec4(0.5,0.5,1,1));
 
-		// Enable the main shader
-		shader.Enable();
-		// pass projection matrix to shader (note that in this case it could change every frame)
+		// Create matrices
 		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-		shader.UniformMat4x4("projection", projection);
-		// camera/view transformation
 		glm::mat4 view = camera.GetViewMatrix();
-		shader.UniformMat4x4("view", view);
-
-		sky.skyShader.Enable();
 		glm::mat4 skyView = glm::mat4(glm::mat3(camera.GetViewMatrix()));
+
+		// Render the skybox
+		sky.skyShader.Enable();
 		sky.skyShader.UniformMat4x4("skyView", skyView);
 		sky.skyShader.UniformMat4x4("projection", projection);
 		sky.Draw();
-		sky.skyShader.Disable();
 
+		// Real rendering starts here
 		shader.Enable();
+		// pass projection matrix to shader (note that in this case it could change every frame)
+		shader.UniformMat4x4("projection", projection);
+		// camera/view transformation
+		shader.UniformMat4x4("view", view);
 
 		// Render a banana, for reference
 		quad.Bind();

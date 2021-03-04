@@ -18,6 +18,8 @@ public:
 	// Draws the cloth!
 	void Draw();
 
+
+
 private:
 	void CreateGridPoints();
 	void UpdateIndicesBuffer();

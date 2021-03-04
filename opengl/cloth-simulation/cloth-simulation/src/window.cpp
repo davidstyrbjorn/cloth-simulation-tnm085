@@ -11,7 +11,7 @@
 
 #include<iostream>
 
-Window::Window(int x, int y, std::string title) : windowSize(x, y), mouseDown(false)
+Window::Window(int x, int y, std::string title) : windowSize(x, y), rightMouseDown(false)
 {
 	glfwSetErrorCallback(error_callback);
 	if (!glfwInit())
@@ -94,9 +94,9 @@ bool Window::IsKeyDown(int keycode)
 	return keys[keycode];
 }
 
-bool Window::IsMouseDown() const
+bool Window::IsRightMouseDown() const
 {
-	return mouseDown;
+	return rightMouseDown;
 }
 
 bool Window::IsOpen()
@@ -146,7 +146,8 @@ void Window::mouse_button_callback(GLFWwindow* window, int button, int action, i
 		temp->GetPolledEvents().push_back(e);
 		
 		// Mouse down modify
-		temp->mouseDown = action == GLFW_PRESS ? true : false;
+
+		temp->rightMouseDown = (action == GLFW_PRESS && button == GLFW_MOUSE_BUTTON_RIGHT) ? true : false;
 	}
 }
 

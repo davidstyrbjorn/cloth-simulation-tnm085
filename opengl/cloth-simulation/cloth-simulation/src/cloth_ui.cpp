@@ -23,11 +23,11 @@ void ClothUI::Render()
 
 	ImGui::Text("Grid");
 	static int newClothSize = cloth->gridSize;
-	ImGui::SliderInt("Grid Size", &newClothSize, 2, 2000);
+	ImGui::SliderInt("Grid Size", &newClothSize, 2, 36);
 
 	if (ImGui::Button("Update")) {
-		//cloth->gridSize = newClothSize;
-		//cloth->Recreate();
+		if(newClothSize != cloth->gridSize) // Do we even need to recreate the cloth?
+			cloth->Recreate(newClothSize);
 	}
 
 	ImGui::Text("Constants?");

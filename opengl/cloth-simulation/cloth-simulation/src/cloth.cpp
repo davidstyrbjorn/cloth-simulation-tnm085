@@ -88,6 +88,29 @@ ClothConfig& Cloth::GetClothConfig()
 	return clothConfig;
 }
 
+void Cloth::Recreate(unsigned int newSize)
+{
+	// What we need to-do:
+	// - Clear the gridPoints list and fill up with new points
+	// - Update the index buffer and vertex buffer
+	// - Redo normals
+
+	if (newSize <= 1) return; // We can't create a cloth in this case!
+
+	gridSize = newSize; // Set our gridSize variable to be used when recreating all the stuff
+
+	// Clear the gridPoints list
+	gridPoints.clear(); // This is enough, its all on the stack
+	CreateGridPoints();
+
+	// Update index buffer and vertex buffer
+	UpdateIndicesBuffer();
+	UpdateVertexBuffer();
+
+	// Finally update the normals
+	UpdateNormals();
+}
+
 void Cloth::CreateGridPoints()
 {
 	gridPoints.clear(); // Empty out all the current grid points

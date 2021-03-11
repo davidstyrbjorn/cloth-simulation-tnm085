@@ -2,6 +2,10 @@
 
 out vec4 fragmentColor;
 
+in vec2 texcord;
+
+uniform sampler2D textureID;
+
 void main(){
-	fragmentColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);
+	fragmentColor = texture(textureID, texcord);
 }

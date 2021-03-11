@@ -3,6 +3,9 @@
 #include<cmath>
 #include<iostream> //For debug purposes
 
+
+#include "stb_image.h"
+
 #define GLEW_STATIC
 #include<GL/glew.h>
 
@@ -12,6 +15,29 @@ Cloth::Cloth(ClothConfig _config, unsigned int _gridSize) : clothConfig(_config)
 {
 	// Creates the cloth grid
 
+	//temp
+	unsigned int texture;
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+	// set the texture wrapping/filtering options (on the currently bound texture object)
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	// load and generate the texture
+	int width, height, nrChannels;
+	unsigned char* data = stbi_load("plain-fabric-texture-dirty-white.jpg", &width, &height, &nrChannels, 0);
+	if (data)
+	{
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else
+	{
+		std::cout << "Failed to load texture" << std::endl;
+	}
+	stbi_image_free(data);
+
 	// 1. Update and fill the points list!
 	CreateGridPoints();
 
@@ -19,6 +45,8 @@ Cloth::Cloth(ClothConfig _config, unsigned int _gridSize) : clothConfig(_config)
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 
+	glBindTexture(GL_TEXTURE_2D, texture);
+	glBindVertexArray(vao);
 	// 3. Creat the opengl index buffer object which connects all the points
 	glGenBuffers(1, &ibo);
 	UpdateIndicesBuffer();
@@ -30,8 +58,10 @@ Cloth::Cloth(ClothConfig _config, unsigned int _gridSize) : clothConfig(_config)
 	// 5. Setup the created VAO from step 2
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(2);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Point), (GLvoid*)0);					// position
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Point), (GLvoid*)sizeof(glm::vec3)); // normals
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Point), (GLvoid*)(sizeof(glm::vec3) + sizeof(glm::vec3))); //texcord
 
 	// Done!
 }
@@ -69,7 +99,7 @@ void Cloth::Draw()
 	UpdateNormals();
 
 	// 2. Call glDrawElements(...)
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	glDrawElements(GL_TRIANGLES, index_count, GL_UNSIGNED_INT, (const void*)0);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
@@ -119,6 +149,7 @@ void Cloth::CreateGridPoints()
 		for (int z = 0; z < gridSize; z++) {
 			Point p;
 			p.position = { x*clothConfig.L0, 0, z * clothConfig.L0 };
+			p.texcor = { (x / ((float)gridSize - 1)), (z / ((float)gridSize - 1))};
 			gridPoints.push_back(p);
 		}
 	}

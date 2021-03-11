@@ -17,6 +17,7 @@ enum SpringType {
 struct Point {
 	glm::vec3 position		= { 0,0,0 };
 	glm::vec3 normal        = { 0,0,0 };
+	glm::vec2 texcor		= { 0,0 };
 	glm::vec3 velocity		= { 0,0,0 };
 	glm::vec3 acceleration	= { 0,0,0 };
 	glm::vec3 accumulatedForce			= { 0,0,0 };

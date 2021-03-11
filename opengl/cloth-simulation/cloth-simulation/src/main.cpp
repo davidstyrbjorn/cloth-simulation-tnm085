@@ -26,8 +26,9 @@ const unsigned int SCR_HEIGHT = 600;
 int main() {
 	
 	Window window = Window(SCR_WIDTH, SCR_HEIGHT, "Cloth Simulation");
-
-	Camera camera(&window, glm::vec3(0.0f, 0.0f, 3.0f));
+	Camera camera(&window, glm::vec3(16.0f, 1.44f, 22.29f));
+	camera.Pitch = -30.0f;
+	camera.Yaw = -120.0f;
 	float lastX = SCR_WIDTH / 2.0f;
 	float lastY = SCR_HEIGHT / 2.0f;
 	bool firstMouse = true;

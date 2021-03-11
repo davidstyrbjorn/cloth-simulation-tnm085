@@ -16,7 +16,7 @@ Window::Window(int x, int y, std::string title) : windowSize(x, y), rightMouseDo
 	glfwSetErrorCallback(error_callback);
 	if (!glfwInit())
 	{
-		std::cout << "Någe gick tame fan fel!" << std::endl;
+		std::cout << "Something went wrong" << std::endl;
 	}
 	
 	//Creates window
@@ -44,7 +44,7 @@ Window::Window(int x, int y, std::string title) : windowSize(x, y), rightMouseDo
 
 	if (!glfwWindow)
 	{
-		std::cout << "Hörre du du, nu ville fönstret cke fungera :'(" << std::endl;
+		std::cout << "Window failed to open" << std::endl;
 	}
 }
 

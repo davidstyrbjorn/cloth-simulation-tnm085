@@ -19,17 +19,19 @@ void ClothUI::Render()
 	ImGui::SliderFloat("Total Mass", &clothConfig.mass, 0.01f, 10.0f);
 
 	ImGui::Text("External Forces");
+	//ImGui::SliderFloat("Wind Direction", &clothConfig, 0.0f, 3.0f);
+
+	ImGui::Text("Ball controll");
 	//ImGui::SliderFloat("Wind Direction", &clothConfig.L0, 0.0f, 3.0f);
 
 	ImGui::Text("Grid");
 	static int newClothSize = cloth->gridSize;
-	ImGui::SliderInt("Grid Size", &newClothSize, 2, 36);
+	ImGui::SliderInt("Grid Size", &newClothSize, 2, 80);
 
 	if (ImGui::Button("Update")) {
-		if(newClothSize != cloth->gridSize) // Do we even need to recreate the cloth?
+		//if(newClothSize != cloth->gridSize) // Do we even need to recreate the cloth?
 			cloth->Recreate(newClothSize);
 	}
-
 	ImGui::Text("Constants?");
 	ImGui::Text("Wind Controls");
 

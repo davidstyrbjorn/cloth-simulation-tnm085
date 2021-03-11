@@ -98,11 +98,18 @@ void Cloth::Draw()
 	UpdateVertexBuffer();
 	UpdateNormals();
 
+	//Emil doing
+
+	//glEnable(GL_CULL_FACE);
+	//glCullFace(GL_FRONT_FACE);
+
 	// 2. Call glDrawElements(...)
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	glDrawElements(GL_TRIANGLES, index_count, GL_UNSIGNED_INT, (const void*)0);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
+	
+	//glDisable(GL_CULL_FACE);
 	// 3. Draw representation for the external forces
 
 	// ...probably no reason to unbind since this project will only render a cloth...

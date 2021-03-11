@@ -16,5 +16,4 @@ public:
 class SinusWind : public ExternalForce {
 public:
 	virtual glm::vec3 getForce(float time, const Point& point);
-
 };

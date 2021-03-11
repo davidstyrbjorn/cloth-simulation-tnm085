@@ -73,10 +73,11 @@ int main() {
 	//float stepTime = 0.1f;
 
 	Shader shader;
-	shader.CreateAndCompileShader("quad_vert.txt", "quad_frag.txt");
+	shader.CreateAndCompileShader("vertex.txt", "fragment.txt");
 
 	bool isMouseDown = false;
 	glm::vec2 orgMousePos;
+
 
 	FPSTimer fpsTimer;
 
@@ -105,7 +106,7 @@ int main() {
 		window.Clear(glm::vec4(0.5,0.5,1,1));
 
 		// Create matrices
-		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.01f, 100.0f);
 		glm::mat4 view = camera.GetViewMatrix();
 		glm::mat4 skyView = glm::mat4(glm::mat3(camera.GetViewMatrix()));
 
@@ -113,6 +114,7 @@ int main() {
 		sky.skyShader.Enable();
 		sky.skyShader.UniformMat4x4("skyView", skyView);
 		sky.skyShader.UniformMat4x4("projection", projection);
+
 		sky.Draw();
 
 		// Real rendering starts here

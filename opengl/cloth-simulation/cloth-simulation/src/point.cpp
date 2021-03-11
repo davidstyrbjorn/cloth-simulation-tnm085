@@ -51,7 +51,6 @@ void Step(Point& p, const ClothConfig& clothConfig, float dt)
 		//Set newAcc to our current acceleration
 		p.acceleration = newAcc;
 	}
-
 }
 
 
